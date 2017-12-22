@@ -1,0 +1,17 @@
+{
+  "name": "mGroup",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "autoprefixer": "*",
+    "gulp": "^3.9.1",
+    "browser-sync": "*",
+    "gulp-concat": "*",
+    "gulp-file-include": "*",
+    "gulp-plumber": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-util": "^3.0.8"
+  }
+}
