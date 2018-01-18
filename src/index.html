@@ -4,9 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>.mGroup</title>
+
+  <link rel="stylesheet" href="fonts/Avenir-Next.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  12
+  <main>
+    @@include('./src/components/page-header.html')
+    @@include('./src/components/section-header.html', {
+      "title": "What do you need help with?",
+      "subtitle-classes": "col-md-8 offset-md-2",
+      "subtitle": " No matter how much or how little you need done, we're here to help. With knowledge, skill and hard work."
+    })
+
+    @@include('./src/components/review-section.html')
+
+    <article class="mg-cta_section mg--bg_secondary mg--text_center">
+      <div class="container">
+        <div class="row flex-column">
+          <section>
+            <h3 class="mg-cta_section__header">Time is Money. Stop Wasting It.</h3>
+            <p class="mg-cta_section__subheader">Come hire us and experience the awesome features we built <br> for you and your business.</p>
+            <button class="mg-button">Let’s Get Srarted</button>
+          </section>
+        </div>
+      </div>
+    </article>
+
+    @@include('./src/components/page-footer.html')
+  </main>
 </body>
 </html>

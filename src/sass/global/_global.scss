@@ -1,0 +1,82 @@
+html{
+  font-size: $font-size-global;
+}
+
+body{
+  font-family: $ff-regular;
+  line-height: 1.5;
+  background-color: #fff;
+}
+
+a{
+  color: $color-primary;
+
+    &:hover{
+      text-decoration: none;
+    }
+}
+
+
+.mg--{
+  &text_center{
+    text-align: center;
+  }
+
+  &bg_cover{
+    background-color: $bg-color-media;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  &bg_secondary{
+    background-color: $color-secondary;
+  }
+
+  &block{
+    display: block;
+  }
+
+  &pb_100{
+    padding-bottom: 100px;
+  }
+}
+
+hr{
+  background-color: rgba(0,0,0,0.05);
+}
+
+.mg-button{
+  min-height: 55px;
+  min-width: 220px;
+  font-family: $ff-demibold;
+  background-color: $color-primary;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+
+    &.mg-clear{
+      background: transparent;
+      border: solid 1px #fff;
+    }
+}
+
+.mg-cta_section{
+  padding: 205px 0;
+
+  &__header{
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  &__subheader{
+    font-size: 1.125em;
+    margin-top: 30px;
+  }
+
+  .mg-button{
+    margin-top: 60px;
+  }
+}

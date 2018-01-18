@@ -1,1 +1,12 @@
-@import './flex-classes';
+@import './global/vars';
+@import './global/reset';
+@import './global/global';
+// @import './global/flex-classes';
+@import '../../node_modules/bootstrap/scss/bootstrap-grid';
+
+// @import '../../node_modules/bootstrap/dist/css/bootstrap-grid';
+
+
+@import './components/page-header';
+@import './components/section-header';
+@import './components/review-block';
