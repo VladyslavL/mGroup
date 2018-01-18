@@ -5,10 +5,12 @@
   "private": true,
   "dependencies": {
     "autoprefixer": "*",
-    "gulp": "^3.9.1",
+    "bootstrap": "^4.0.0-beta.3",
     "browser-sync": "*",
+    "gulp": "^3.9.1",
     "gulp-concat": "*",
     "gulp-file-include": "*",
+    "gulp-image": "^4.2.0",
     "gulp-plumber": "*",
     "gulp-sass": "*",
     "gulp-sourcemaps": "*",
