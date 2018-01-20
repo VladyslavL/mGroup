@@ -48,14 +48,14 @@ gulp.task('script', function() {
 })
 
 gulp.task('images', function(){
-  gulp.src(['./src/images/*'])
+  gulp.src(['./src/images/**/*'])
       .pipe(plumber())
       .pipe(image())
       .pipe(gulp.dest('./dist/images/'))
 })
 
 gulp.task('move', function(){
-  gulp.src(['./src/fonts/**'])
+  gulp.src(['./src/fonts/**/*'])
       .pipe(plumber())      
       .pipe(fileInclude({
         prefix: '@@',
@@ -72,8 +72,8 @@ gulp.task('serve', ['html','style','script','images','move'], function() {
 
   gulp.watch("./src/sass/**/*.scss", ['style']);
   gulp.watch("./src/**/*.html", ['html']);
-  gulp.watch("./src/images/**/**", ['images']);
-  gulp.watch("./src/fonts/**", ['move']);
+  gulp.watch("./src/images/**/*.*", ['images']);
+  gulp.watch("./src/fonts/**/*.*", ['move']);
 });
 
 // gulp.task('default', function () {
