@@ -1,0 +1,17 @@
+.mg-page_footer{
+  &__nav{
+      a{
+        text-decoration: none;
+        margin: 45px 50px;
+        color: inherit;
+      }
+  }
+
+  .copy{
+    padding: 35px 0;
+
+      .mg-icon_heart{
+        margin: 0 5px;
+      }
+  }
+}

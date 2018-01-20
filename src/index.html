@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>.mGroup</title>
-
-  <link rel="stylesheet" href="fonts/Avenir-Next.css">
-  <link rel="stylesheet" href="css/style.css">
+  @@include('./src/components/head.html')
 </head>
 <body>
   <main>
@@ -18,6 +12,121 @@
       "subtitle": " No matter how much or how little you need done, we're here to help. With knowledge, skill and hard work."
     })
 
+    <div class="mg-article_wrapper">
+      <article class="mg-main_article">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-sm-4 offset-sm-2">
+              <section class="mg-text_section">
+                <h3 class="mg-text_section__header">So, why mGroup?</h3>
+                <p class="mg-text_section__paragraph">We’re Creative & Innovative Web Design Agency that specialising in strategy, design and development. Our team know how to grow digital business or startup from scratch.</p>
+                <p class="mg-text_section__paragraph">We’re here to create unique solutions for your ideas, and we can help you to fix all the problems which you face on during developing business projects.</p>
+                <p class="mg-text_section__paragraph">We are a small team but cool! Our team is friendly, creative and responsible, so feel free to contact us. We are a small team but cool! Our team is friendly, creative and responsible, so feel free to contact us.</p>
+                <button class="mg-button">Let’s Get Srarted</button>
+              </section>
+            </div>
+
+            <div class="col-sm-5 offset-sm-1">
+              <div class="row justify-content-center">
+                <div class="mg-feature_box mg--text_center d-flex flex-column justify-content-center">
+                  <h5 class="mg-feature_box__header">98%</h5>
+                  <p class="mg-feature_box__text">Clients who would recommend us.</p>
+                </div>
+
+                <div class="mg-feature_box mg--text_center d-flex flex-column justify-content-center">
+                  <h5 class="mg-feature_box__header">73+</h5>
+                  <p class="mg-feature_box__text">Successfully finished projects.</p>
+                </div>
+
+                <div class="mg-feature_box mg--text_center d-flex flex-column justify-content-center">
+                  <h5 class="mg-feature_box__header">Only</h5>
+                  <p class="mg-feature_box__text">Experienced top-rated specialists.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mg-main_article mg--no_padding  mg--bg_secondary">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6 mg--bg_cover" style="background-image: url('images/1.jpg')">
+            </div>
+
+            <div class="col-sm-5 offset-sm-1">
+              <section class="mg-text_section mg--with_padding">
+                <h3 class="mg-text_section__header">We Combine Web Design & Development</h3>
+                <p class="mg-text_section__paragraph">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
+                <ul class="mg-text_section__list">
+                  <li>
+                    <div class="d-flex flex-row align-items-center">
+                      <img src="./images/icons/coding.svg" alt="">
+                      <div>
+                        <p>WordPress CMS, HTML5, CSS3, E-commerce</p>
+                        <span>Responsive frontend</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="d-flex flex-row align-items-center">
+                      <img src="./images/icons/layers.svg" alt="">
+                      <div>
+                        <p>User Experience, User Interface Design</p>
+                        <span>Unique Website Design</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <button class="mg-button">View our Website Services</button>
+              </section>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mg-main_article">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-sm-4 offset-sm-2">
+              <section class="mg-text_section">
+                <h3 class="mg-text_section__header">Thorough search engine optimisation (SEO)</h3>
+                <p class="mg-text_section__paragraph">Get more traffic, leads, and sales with our professional SEO service. Whether you need quality, engaging content or a complex mix of SEO strategies, you can start building your success today.</p>
+                <p class="mg-text_section__paragraph">From consultations to conversions, we will work as an extension of your company to deliver results.</p>
+                <button class="mg-button">Let’s Get Srarted</button>
+              </section>
+            </div>
+
+            <div class="col-sm-5 offset-sm-1">
+              <div class="row justify-content-center">
+                <div class="mg-feature_box mg--bg_cover" style="background-image: url('images/graph_1.jpg')">
+                </div>
+
+                <div class="mg-feature_box mg--bg_cover" style="background-image: url('images/graph_2.jpg')">
+                </div>
+
+                <div class="mg-feature_box mg--bg_cover" style="background-image: url('images/graph_3.jpg')">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <section class="mg-separator">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-md-8">
+            <p class="mg-separator__text">We design and develop experiences that makes people’s lives simple. Share your ideas, mockups, product description to get a quote or ask us any questions and we’ll be happy to answer.</p>
+          </div>
+
+          <div class="col-md-3">
+            <button class="mg-button mg--clear">Get in Touch</button>
+          </div>
+        </div>
+      </div>
+    </section>
     @@include('./src/components/review-section.html')
 
     <article class="mg-cta_section mg--bg_secondary mg--text_center">
@@ -31,8 +140,8 @@
         </div>
       </div>
     </article>
-
-    @@include('./src/components/page-footer.html')
   </main>
+  
+  @@include('./src/components/page-footer.html')  
 </body>
 </html>

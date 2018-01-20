@@ -6,13 +6,52 @@ body{
   font-family: $ff-regular;
   line-height: 1.5;
   background-color: #fff;
+  color: #000;
 }
 
 a{
   color: $color-primary;
 
+
     &:hover{
       text-decoration: none;
+    }
+
+    &.mg--clean{
+      text-decoration: none;
+      color: inherit;
+    }
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.mg-icon_arrow{
+  height: 1px;
+  width: 60px;
+  background: #000;
+  position: relative;
+  transition: all 0.6s ease-in-out;
+
+    &:before{
+      content: '';
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      top: 50%;
+      left: 100%;
+      transform: translate(0, -50%);
+      border-left: 13px solid #000;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-right: none;
     }
 }
 
@@ -28,6 +67,10 @@ a{
     background-position: 50% 50%;
   }
 
+  &bg_primary{
+    background-color: $color-primary;
+  }
+
   &bg_secondary{
     background-color: $color-secondary;
   }
@@ -39,15 +82,31 @@ a{
   &pb_100{
     padding-bottom: 100px;
   }
+
+  &thumbnail{
+    min-height: 450px !important;
+  }
+
+  &work_article{
+    &:hover{
+      .mg-icon_arrow{
+        width: 100px;
+      }
+    }
+  }
 }
 
 hr{
   background-color: rgba(0,0,0,0.05);
+  margin: 0;
+  height: 1px;
+  border: none;
 }
 
 .mg-button{
   min-height: 55px;
-  min-width: 220px;
+  width: 100%;
+  max-width: 255px;
   font-family: $ff-demibold;
   background-color: $color-primary;
   color: #fff;
@@ -57,7 +116,7 @@ hr{
   cursor: pointer;
   outline: none;
 
-    &.mg-clear{
+    &.mg--clear{
       background: transparent;
       border: solid 1px #fff;
     }
@@ -79,4 +138,89 @@ hr{
   .mg-button{
     margin-top: 60px;
   }
+}
+
+.mg-separator{
+  background-color: $color-primary;
+  padding: 90px 0;
+  color: #fff;
+}
+
+.mg-article_wrapper{
+  padding: 75px 0;
+
+  .mg-main_article{
+    &:not(.mg--no_padding){
+      padding: 75px 0;
+    }
+  }
+}
+
+.mg-text_section{
+  &.mg--with_padding{
+    padding: 120px 0;
+  }
+
+  &__header{
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+  }
+
+  &__paragraph{
+    padding-bottom: 30px;
+  }
+
+  &__list{
+    li{
+      padding: 15px 0;
+
+        img{
+          margin-right: 25px;
+        }
+
+        span{
+          color: #8393A0;
+        }
+    }
+  }
+
+  &__categories{
+    letter-spacing: 1.2px;
+    color: rgba(110,108,108,0.3);
+    font-family: $ff-medium;
+    text-transform: uppercase;
+  }
+
+  &__work_header{
+    font-size: 2.25rem;
+    letter-spacing: 1.2px;
+    padding: 30px 0 40px;
+  }
+
+
+
+  .mg-button{
+    margin-top: 20px;
+  }
+}
+
+.mg-feature_box{
+  width: 220px;
+  height: 220px;
+  background-color: #fff;
+  box-shadow: 0 9px 19px 0 rgba(176,188,207,0.3);
+  margin: 10px;
+  padding: 25px;
+  border-radius: 10px;
+
+    &__header{
+      font-size: 3rem;
+      color: $color-primary;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    &__text{
+
+    }
 }
