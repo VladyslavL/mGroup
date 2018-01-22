@@ -1,0 +1,21 @@
+{
+  "name": "mGroup",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Vladyslav Liashenko <vladyslav.liashenko@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/n0th1nk/mGroup",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^7.0.0"
+  }
+}
