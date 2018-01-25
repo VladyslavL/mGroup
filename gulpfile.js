@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('html', function() {
-  gulp.src(["src/**/*.html", "!src/fonts/**"])
+  gulp.src(["src/**/*.html", "!src/fonts/**", "!src/components/**"])
       .pipe(plumber())
       .pipe(fileInclude({
         prefix: '@@',
@@ -41,8 +41,12 @@ gulp.task('style', function () {
 });
 
 gulp.task('script', function() {
-  gulp.src(['src/**/*.js'])
+  gulp.src(['src/js/*.js'])
       .pipe(plumber())
+      .pipe(fileInclude({
+        prefix: '@@',
+        basepath: '@root'
+      }))
       .pipe(gulp.dest('dist/js/'))
       .pipe(browserSync.stream());
 })
@@ -71,6 +75,7 @@ gulp.task('serve', ['html','style','script','images','move'], function() {
   });
 
   gulp.watch("src/sass/**/*.scss", ['style']);
+  gulp.watch("src/js/**/*.*", ['script']);
   gulp.watch("src/**/*.html", ['html']);
   gulp.watch("src/images/**/*.*", ['images']);
   gulp.watch("src/fonts/**/*.*", ['move']);

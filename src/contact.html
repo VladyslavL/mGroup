@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  @@include('./src/components/head.html')
+</head>
+<body>
+  <main>
+    @@include("src/components/work-header.html", {
+      "class": "",
+      "header": "Contact Us",
+      "text": "Fill out the enquiry form and we'll get back to you as soon as possible."
+    })
+
+   <div class="container mg--padding_100">
+     <div class="row">
+       <div class="col-sm-6 offset-sm-3">
+         <p class="mg--text_center">Share your ideas, mockups, product description to get a quote or ask us any questions. </p>
+       </div>
+     </div>
+
+     <div class="row">
+       <form action="" class="col-10 offset-sm-1">
+         <div class="row">
+           <div class="col-sm-6"><input type="text" name="name" id="" placeholder="YOUR NAME*"></div>
+           <div class="col-sm-6"><input type="email" name="email" id="" placeholder="YOUR EMAIL*"></div>
+           <div class="col-sm-6"><input type="text" name="company" id="" placeholder="COMPANY"></div>
+           <div class="col-sm-6"><input type="text" name="phone" id="" placeholder="PHONE NUMBER / SKYPE ID"></div>
+           <div class="col-12"><label class="mg-file_mask d-flex align-items-center"><img src="images/icons/icon-attach.svg" alt="" height="20px" width="20px"><p>ATTACH YOUR FILE</p> <input type="file" name="file" id="" placeholder="ATTACH YOUR FILE"></label></div>
+           <div class="col-12"><textarea name="message" id="" placeholder="YOUR MESSAGE"></textarea></div>
+           <div class="col-12 mg--text_center"><button type="submit" class="mg-button">Send</button></div>
+         </div>
+       </form>
+     </div>
+   </div>
+
+   <article class="mg-cta_section mg--bg_secondary mg--text_center mg--padding_150">
+      <div class="container">
+        <div class="row flex-column">
+          <section>
+            <h3 class="mg-cta_section__header">Other ways to reach us</h3>
+            <p class="mg-cta_section__subheader">Leave a message or give us a call and we’ll be happy to answer.</p>
+
+            <div class="mg-contact_links mg--text_center">
+              <div class="align-items-center justify-content-center d-flex"><img src="images/icons/icon-mail.svg" alt=""> <a href="mail:info@mgroup.studio" class="mg--underlined">info@mgroup.studio</a></div>
+            </div>
+
+            <div class="mg-social_links">
+              <h5 class="mg-social_links__header">Follow Us</h5>
+
+              <div class="d-form align-items-center">
+                <a href=""><img src="images/icons/icon-fb.svg" alt=""></a>
+                <a href=""><img src="images/icons/icon-tw.svg" alt=""></a>
+                <a href=""><img src="images/icons/icon-insta.svg" alt=""></a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  @@include('./src/components/page-footer.html')
+
+  @@include("src/components/scripts.html")
+</body>
+</html>

@@ -1,24 +1,16 @@
 .mg-page_header{
+  position: relative;
 
     &__content{
       .mg--index_page &{
         min-height: 700px;
       }
       min-height: 400px;
-      color: #fff;
       padding: 50px 0;
     }
 
     &__title{
-      font-size: 3rem;
-      line-height: 1.67;
-      font-family: $ff-demibold;
-    }
-
-    &__subtitle{
-      margin-top: 15px;
-      font-size: 1.125rem;
-      letter-spacing: 0.5px;
+      color: inherit;
     }
 
     .mg-button{

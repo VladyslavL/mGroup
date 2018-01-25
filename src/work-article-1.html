@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  @@include('./src/components/head.html')
+</head>
+<body>
+  <main>
+    @@include("src/components/work-header.html", {
+      "class": "mg-work_categories",
+      "header": "Architecture Studio",
+      "text": " <span>Web Desing</span><span>Web Development</span> "
+    })
+
+    <div class="container">
+      <div class="row">
+        <div class="col mg--padding_100">
+          <img src="images/works/archi/thumbnail.jpg" alt="" class="mg--img_block">
+        </div>
+      </div>
+    </div>
+
+    <div class="mg--bg_primary mg--padding_150 mg--text_center mg--text_color__white">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2 class="mg--h2">About the Project</h2>
+            <p>Since 2000, Archi Architecture Studio has worked to deliver well-conceived, constructible architecture with lasting value. They provide comprehensive architectural services including building and interior design, master planning,  feasibility studies and related services.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mg-work_slider mg--padding_100">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="images/works/archi/slide-1.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/archi/slide-1.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/archi/slide-1.jpg" alt="" class="mg--img_block"></div>
+              </div>
+            </div>
+
+            <div class="swiper-button-prev d-flex justify-content-center align-items-center">
+              <svg width="11px" height="17px" viewBox="0 0 11 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Project-Page-Architecture-Studio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-246.000000, -2007.000000)" fill-opacity="0.8" font-family="FontAwesome" font-size="30" font-weight="normal">
+                    <g id="About-Project" transform="translate(0.000000, 1144.000000)" fill="#000000">
+                        <g id="arrow-left" transform="translate(211.000000, 830.000000)">
+                            <text id="">
+                                <tspan x="35.1428571" y="51"></tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+              </svg>
+            </div>
+            <div class="swiper-button-next d-flex justify-content-center align-items-center">
+              <svg width="10px" height="17px" viewBox="0 0 10 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Project-Page-Architecture-Studio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1185.000000, -2007.000000)" font-family="FontAwesome" font-size="30" font-weight="normal">
+                    <g id="About-Project" transform="translate(0.000000, 1144.000000)" fill="#000000">
+                        <g id="arrow-right-hover" transform="translate(1150.000000, 830.000000)">
+                            <text id="">
+                                <tspan x="35.1428571" y="51"></tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mg-work_separator" style="background-image: url('images/works/archi/separator.jpg')"></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col mg--padding_100">
+          <img src="images/works/archi/last.jpg" alt="" class="mg--img_block">
+        </div>
+      </div>
+    </div>
+
+    <div class="mg-work_article__paggy mg--bg_primary mg--text_color__white">
+      <div class="container-fluid">
+        <div class="row">
+          <a href="#" class="col flex-row d-flex align-items-center justify-content-end mg--text_right"><i class="mg-icon_arrow mg--left_side"></i><p>Previous</p></a>
+          <a href="#" class="col flex-row d-flex align-items-center justify-content-center mg--text_center"><p>All Projects</p></a>
+          <a href="#" class="col flex-row d-flex align-items-center"><p>Next</p> <i class="mg-icon_arrow"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    @@include("src/components/cta-section.html")
+  </main>
+  @@include('./src/components/page-footer.html')
+
+  @@include("src/components/scripts.html")
+</body>
+</html>

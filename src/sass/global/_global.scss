@@ -4,22 +4,53 @@ html{
 
 body{
   font-family: $ff-regular;
+  font-size: 1.125rem;
   line-height: 1.5;
   background-color: #fff;
+  color: #4b4b4b;
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin-bottom: 30px;
   color: #000;
+  line-height: inherit;
+
+  .mg--text_color__white &{
+    color: #fff;
+  }
+}
+
+p + p{
+  padding-top: 30px;
+}
+
+.mg--h1{
+  font-size: 3rem;
+  font-family: $ff-demibold;
+}
+
+.mg--h2{
+  font-size: 2.25rem;
+}
+
+.mg--h3{
+  font-size: 1.75rem;
 }
 
 a{
-  color: $color-primary;
+  text-decoration: none;
+  color: inherit;
 
-
-    &:hover{
-      text-decoration: none;
+    p &{
+      color: $color-primary;      
     }
 
-    &.mg--clean{
-      text-decoration: none;
-      color: inherit;
+    &.mg--underlined{
+      text-decoration: underline;
+
+        &:hover{
+          text-decoration: none;
+        }
     }
 }
 
@@ -28,16 +59,93 @@ ul{
   list-style: none;
 }
 
+input,
+textarea{
+  background-color: rgba(216,216,216,0.3);
+  padding-left: 20px;  
+  width: 100%;
+  height: 45px;
+  line-height: normal;
+  border: none;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  outline: none;
+}
+
+textarea{
+  min-height: 200px;
+  resize: none;
+  padding: 10px 20px;
+}
+
+input::-webkit-input-placeholder,
+input::-ms-input-placeholder,
+input:-ms-input-placeholder,
+input::placeholder {
+  color: #000;
+  text-transform: uppercase;
+}
+
+.mg-file_mask{
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  height: 45px;
+  line-height: 20px;
+  width: 100%;
+  cursor: pointer;
+  border: 1px dashed rgba(49,49,49,0.3);
+  padding-left: 20px;
+  line-height: 1;
+
+
+    input{
+      cursor: inherit;
+      display: block;
+      font-size: 999px;
+      min-height: 100%;
+      min-width: 100%;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 0;
+    }
+
+    img{
+      margin-right: 20px;
+    }
+
+    p{
+      position: relative;
+      top: 1px;
+    }
+}
+
+form{
+  padding-top: 100px;
+
+    button{
+      margin-top: 40px;
+    }
+}
+
 .d-flex{
   display: flex;
 }
 
 .mg-icon_arrow{
+  color: #000;
   height: 1px;
   width: 60px;
-  background: #000;
+  background: currentColor;
   position: relative;
   transition: all 0.6s ease-in-out;
+
+    .mg--text_color__white & {
+      color: #fff;
+    }
 
     &:before{
       content: '';
@@ -48,10 +156,19 @@ ul{
       top: 50%;
       left: 100%;
       transform: translate(0, -50%);
-      border-left: 13px solid #000;
+      border-left: 13px solid currentColor;
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;
       border-right: none;
+    }
+
+    &.mg--left_side{
+      &:before{
+        right: 100%;
+        left: auto;
+        border-right: 13px solid currentColor;
+        border-left: none;
+      }
     }
 }
 
@@ -61,10 +178,19 @@ ul{
     text-align: center;
   }
 
+  &text_right{
+    text-align: right;
+  }
+
+  &text_color__white{
+    color: #fff;
+  }
+
   &bg_cover{
     background-color: $bg-color-media;
     background-size: cover;
     background-position: 50% 50%;
+    background-repeat: no-repeat;
   }
 
   &bg_primary{
@@ -84,7 +210,7 @@ ul{
   }
 
   &thumbnail{
-    min-height: 450px !important;
+    min-height: 400px !important;
   }
 
   &work_article{
@@ -92,6 +218,26 @@ ul{
       .mg-icon_arrow{
         width: 100px;
       }
+    }
+  }
+
+  &img_block{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &padding_{
+    &100{
+      padding: 100px 0;
+    }
+
+    &150{
+      padding: 150px 0;
+    }
+
+    &200{
+      padding: 200px 0;
     }
   }
 }
@@ -113,6 +259,7 @@ hr{
   text-align: center;
   border: none;
   border-radius: 5px;
+  line-height: 1.1;
   cursor: pointer;
   outline: none;
 
@@ -123,20 +270,16 @@ hr{
 }
 
 .mg-cta_section{
-  padding: 205px 0;
-
   &__header{
     font-size: 3rem;
-    line-height: 1;
-  }
-
-  &__subheader{
-    font-size: 1.125em;
-    margin-top: 30px;
   }
 
   .mg-button{
     margin-top: 60px;
+  }
+
+  a{
+    color: inherit;
   }
 }
 
@@ -146,24 +289,9 @@ hr{
   color: #fff;
 }
 
-.mg-article_wrapper{
-  padding: 75px 0;
-
-  .mg-main_article{
-    &:not(.mg--no_padding){
-      padding: 75px 0;
-    }
-  }
-}
-
 .mg-text_section{
   &.mg--with_padding{
     padding: 120px 0;
-  }
-
-  &__header{
-    font-size: 1.75rem;
-    margin-bottom: 30px;
   }
 
   &__paragraph{
@@ -184,11 +312,8 @@ hr{
     }
   }
 
-  &__categories{
-    letter-spacing: 1.2px;
+  .mg-work_categories{
     color: rgba(110,108,108,0.3);
-    font-family: $ff-medium;
-    text-transform: uppercase;
   }
 
   &__work_header{
@@ -208,7 +333,7 @@ hr{
   width: 220px;
   height: 220px;
   background-color: #fff;
-  box-shadow: 0 9px 19px 0 rgba(176,188,207,0.3);
+  box-shadow: $box-shadow;
   margin: 10px;
   padding: 25px;
   border-radius: 10px;
@@ -223,4 +348,103 @@ hr{
     &__text{
 
     }
+}
+
+.mg-work_categories{
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: $ff-medium;
+  letter-spacing: 1px;
+
+    span + span{
+      &:before{
+        content: "|";
+        padding: 0 5px;
+        position: relative;
+        top: -0.09rem
+      }
+    }
+}
+
+.mg-work_article__paggy{
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+
+    a{
+      height: 200px;
+    }
+
+    .mg-icon_arrow{
+      margin: 0 10px;
+    }
+}
+
+.mg-work_slider{
+  .swiper-container{
+    box-shadow: $box-shadow;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev{
+    width: 80px;
+    height: 80px;
+    margin-top: 0;
+    background-image: none;
+    border-radius: 3px;
+    background-color: $color-primary;
+    color: #fff;
+    box-shadow: $box-shadow;
+
+      svg{
+        g{
+          fill: currentColor;
+        }
+      }
+
+      &:hover{
+        color: #000;
+        background-color: #fff;
+      }
+  }
+
+  .swiper-button-next{
+    transform: translate(calc(50% - 15px), -50%);
+    right: 0;
+  }
+
+  .swiper-button-prev{
+    transform: translate(calc(-50% + 15px), -50%);
+    left: 0;
+  }
+}
+
+.mg-work_separator{
+  height: 500px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.mg-contact_links{
+  padding: 50px 0;
+
+    div + div{
+      padding-top: 20px;
+    }
+
+    img{
+      margin-right: 10px;
+      width: 20px;
+    }
+}
+
+.mg-social_links{
+  &__header{
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+  }
+
+  a{
+    margin: 0 5px;
+  }
 }
