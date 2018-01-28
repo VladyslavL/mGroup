@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     image = require('gulp-image'),
-    cssco = require('gulp-csso'),
+    csso = require('gulp-csso'),
     htmlmin = require('gulp-html-minifier'),
     uglify = require('gulp-uglify'),
     clean = require('gulp-clean');
@@ -114,7 +114,7 @@ gulp.task('d-style', function () {
         basepath: '@root'
       }))
       .pipe(sass())
-      .pipe(cssco())
+      .pipe(csso())
       .pipe(gulp.dest('deploy/css/'))
 });
 
