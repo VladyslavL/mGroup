@@ -6,8 +6,35 @@ $color-secondary: #FBFBFB;
 $font-size-global: 16px;
 
 $box-shadow: 0 9px 19px 0 rgba(176,188,207,0.3);
+$ff: 'Nunito', sans-serif;
 
-$ff-regular: "Avenir Next Regular";
-$ff-medium: "Avenir Next Medium";
-$ff-bold: "Avenir Next Bold";
-$ff-demibold: "Avenir Next Demi Bold"; 
+$ff-extralight: 200;
+$ff-light: 300;
+$ff-regular: 400;
+$ff-semibold: 600;
+$ff-bold: 700;
+$ff-extrabold: 800; 
+$ff-black: 900;
+
+$mg-layout-sm: 576px;
+$mg-layout-md: 768px;
+$mg-layout-lg: 992px;
+$mg-layout-xl: 1200px;
+
+@mixin media($media) {
+  @if $media == xs {
+    @media only screen and (max-width: $mg-layout-xs - 1) { @content; }
+  }
+  @else if $media == sm {
+    @media only screen and (min-width: $mg-layout-sm) { @content; }
+  }
+  @else if $media == md {
+    @media only screen and (min-width: $mg-layout-md) { @content; }
+  }
+  @else if $media == lg {
+    @media only screen and (min-width: $mg-layout-lg) { @content; }
+  }
+  @else if $media == xl {
+    @media only screen and (min-width: $mg-layout-xl) { @content; }
+  }
+}

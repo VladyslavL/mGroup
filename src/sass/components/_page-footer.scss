@@ -2,13 +2,17 @@
   &__nav{
       a{
         text-decoration: none;
-        margin: 45px 50px;
+        margin: 35px 10px;
         color: inherit;
+        @media screen and (min-width: $mg-layout-md){
+          margin: 35px 30px;          
+        }
       }
   }
 
   .copy{
-    padding: 35px 0;
+    padding: 15px 0;
+    font-size: 0.875rem;
 
       .mg-icon_heart{
         margin: 0 5px;

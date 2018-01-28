@@ -13,32 +13,26 @@
 
     <div class="container">
       <div class="row">
-        <div class="col mg--padding_100">
-          <img src="images/works/archi/thumbnail.jpg" alt="" class="mg--img_block">
+        <div class="col mg--padding_sm">
+          <img src="images/works/archi/thumbnail@2x.jpg" alt="" class="mg--img_block">
         </div>
       </div>
     </div>
 
-    <div class="mg--bg_primary mg--padding_150 mg--text_center mg--text_color__white">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h2 class="mg--h2">About the Project</h2>
-            <p>Since 2000, Archi Architecture Studio has worked to deliver well-conceived, constructible architecture with lasting value. They provide comprehensive architectural services including building and interior design, master planning,  feasibility studies and related services.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    @@include('src/components/work-article/article-about.html', {
+      "text": "Since 2000, Archi Architecture Studio has worked to deliver well-conceived, constructible architecture with lasting value. They provide comprehensive architectural services including building and interior design, master planning,  feasibility studies and related services."
+    })
 
-    <div class="mg-work_slider mg--padding_100">
+    <div class="mg-work_slider mg--padding_sm">
       <div class="container">
         <div class="row">
           <div class="col">
             <div class="swiper-container">
               <div class="swiper-wrapper">
-                  <div class="swiper-slide"><img src="images/works/archi/slide-1.jpg" alt="" class="mg--img_block"></div>
-                  <div class="swiper-slide"><img src="images/works/archi/slide-1.jpg" alt="" class="mg--img_block"></div>
-                  <div class="swiper-slide"><img src="images/works/archi/slide-1.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/archi/slide-1@2x.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/archi/slide-2@2x.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/archi/slide-3@2x.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/archi/slide-4@2x.jpg" alt="" class="mg--img_block"></div>
               </div>
             </div>
 
@@ -77,26 +71,19 @@
 
     <div class="container">
       <div class="row">
-        <div class="col mg--padding_100">
-          <img src="images/works/archi/last.jpg" alt="" class="mg--img_block">
+        <div class="col mg--padding_sm">
+          <img src="images/works/archi/last@2x.jpg" alt="" class="mg--img_block">
         </div>
       </div>
     </div>
 
-    <div class="mg-work_article__paggy mg--bg_primary mg--text_color__white">
-      <div class="container-fluid">
-        <div class="row">
-          <a href="#" class="col flex-row d-flex align-items-center justify-content-end mg--text_right"><i class="mg-icon_arrow mg--left_side"></i><p>Previous</p></a>
-          <a href="#" class="col flex-row d-flex align-items-center justify-content-center mg--text_center"><p>All Projects</p></a>
-          <a href="#" class="col flex-row d-flex align-items-center"><p>Next</p> <i class="mg-icon_arrow"></i></a>
-        </div>
-      </div>
-    </div>
+    @@include("src/components/work-article/article-paggy.html",{
+      "prev-url": "work-article-5.html",
+      "next-url": "work-article-2.html"
+    })
     
     @@include("src/components/cta-section.html")
   </main>
   @@include('./src/components/page-footer.html')
-
-  @@include("src/components/scripts.html")
 </body>
 </html>

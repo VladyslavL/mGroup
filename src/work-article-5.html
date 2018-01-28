@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  @@include('./src/components/head.html')
+</head>
+<body>
+  <main>
+    @@include("src/components/work-header.html", {
+      "class": "mg-work_categories",
+      "header": "Forum City",
+      "text": "<span>Web Development</span>"
+    })
+
+    <div class="container">
+      <div class="row">
+        <div class="col mg--padding_sm">
+          <img src="images/works/forum/thumbnail@2x.jpg" alt="" class="mg--img_block">
+        </div>
+      </div>
+    </div>
+
+    @@include('src/components/work-article/article-about.html', {
+      "text": "''Forum City'' is a multifunctional complex with a total area of more than 36 thousand square meters, combining stores, a modern business center and respectable apartments. <br><br><a href='www.mfc-forum.com' target='_blank' class='mg--text_color__white mg--underlined'>www.mfc-forum.com</a>"
+    })
+
+    <div class="mg-work_slider mg--padding_sm">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="images/works/forum/slide-1@2x.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/forum/slide-2@2x.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/forum/slide-3@2x.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/forum/slide-4@2x.jpg" alt="" class="mg--img_block"></div>
+                  <div class="swiper-slide"><img src="images/works/forum/slide-5@2x.jpg" alt="" class="mg--img_block"></div>
+              </div>
+            </div>
+
+            <div class="swiper-button-prev d-flex justify-content-center align-items-center">
+              <svg width="11px" height="17px" viewBox="0 0 11 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Project-Page-Architecture-Studio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-246.000000, -2007.000000)" fill-opacity="0.8" font-family="FontAwesome" font-size="30" font-weight="normal">
+                    <g id="About-Project" transform="translate(0.000000, 1144.000000)" fill="#000000">
+                        <g id="arrow-left" transform="translate(211.000000, 830.000000)">
+                            <text id="">
+                                <tspan x="35.1428571" y="51"></tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+              </svg>
+            </div>
+            <div class="swiper-button-next d-flex justify-content-center align-items-center">
+              <svg width="10px" height="17px" viewBox="0 0 10 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Project-Page-Architecture-Studio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1185.000000, -2007.000000)" font-family="FontAwesome" font-size="30" font-weight="normal">
+                    <g id="About-Project" transform="translate(0.000000, 1144.000000)" fill="#000000">
+                        <g id="arrow-right-hover" transform="translate(1150.000000, 830.000000)">
+                            <text id="">
+                                <tspan x="35.1428571" y="51"></tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @@include("src/components/work-article/article-paggy.html",{
+      "prev-url": "work-article-4.html",
+      "next-url": "work-article-1.html"
+    })
+    
+    @@include("src/components/cta-section.html")
+  </main>
+  @@include('./src/components/page-footer.html')
+</body>
+</html>

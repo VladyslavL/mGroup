@@ -2,11 +2,9 @@
   <div class="container">
     <div class="row">
       <nav class="mg-page_footer__nav col d-flex flex-row justify-content-center">
-        <a href="#">Features</a>
-        <a href="#">Works</a>
-        <a href="#">Careers</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact Us</a>
+          <a href="/">Company</a>
+          <a href="works-page.html">Works</a>
+          <a href="contact.html">Contacts</a>
       </nav>
     </div>
 
@@ -19,3 +17,15 @@
     </div>
   </div>
 </footer>
+
+@@include('src/components/scripts.html')
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113192909-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113192909-1');
+</script>

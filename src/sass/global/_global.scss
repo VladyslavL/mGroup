@@ -1,32 +1,48 @@
 html{
   font-size: $font-size-global;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body{
-  font-family: $ff-regular;
+  font-family: $ff;
   font-size: 1.125rem;
   line-height: 1.5;
   background-color: #fff;
   color: #4b4b4b;
+  font-weight: $ff-light;
 }
 
 h1,h2,h3,h4,h5,h6{
   margin-bottom: 30px;
   color: #000;
   line-height: inherit;
+  font-weight: $ff-regular;
 
   .mg--text_color__white &{
     color: #fff;
   }
 }
 
-p + p{
-  padding-top: 30px;
+b{
+  font-weight: $ff-bold;
 }
 
+p{
+  & + p{
+      padding-top: 30px;
+  }
+
+  & + ul{
+    padding-top: 60px;
+  }
+} 
+
 .mg--h1{
-  font-size: 3rem;
-  font-family: $ff-demibold;
+  font-size: 2rem;
+  font-weight: $ff-semibold;
+  @include media(md){
+    font-size: 3rem;
+  }
 }
 
 .mg--h2{
@@ -35,6 +51,10 @@ p + p{
 
 .mg--h3{
   font-size: 1.75rem;
+}
+
+[hidden]{
+  display: none !important;
 }
 
 a{
@@ -56,6 +76,7 @@ a{
 
 ul{
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
@@ -189,7 +210,7 @@ form{
   &bg_cover{
     background-color: $bg-color-media;
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: 50% 0;
     background-repeat: no-repeat;
   }
 
@@ -206,7 +227,11 @@ form{
   }
 
   &pb_100{
-    padding-bottom: 100px;
+    padding-bottom: 50px;
+    
+    @include media(md){
+      padding-bottom: 100px;
+    }
   }
 
   &thumbnail{
@@ -225,19 +250,29 @@ form{
     display: block;
     width: 100%;
     height: auto;
+    margin: 0 auto;
   }
 
   &padding_{
-    &100{
+    &sm{
+      padding: 50px 0;
+      @include media(md){
+        padding: 100px 0;
+      }
+    }
+
+    &md{
+      padding: 75px 0;
+      @include media(md){
+        padding: 150px 0;
+      }
+    }
+
+    &lg{
       padding: 100px 0;
-    }
-
-    &150{
-      padding: 150px 0;
-    }
-
-    &200{
-      padding: 200px 0;
+      @include media(md){
+        padding: 200px 0;
+      }
     }
   }
 }
@@ -250,52 +285,66 @@ hr{
 }
 
 .mg-button{
-  min-height: 55px;
+  display: inline-block;
+  // min-height: 55px;
+  line-height: 55px;
   width: 100%;
   max-width: 255px;
-  font-family: $ff-demibold;
+  font-weight: $ff-semibold;
   background-color: $color-primary;
+  border: 1px solid $color-primary;
   color: #fff;
   text-align: center;
-  border: none;
   border-radius: 5px;
-  line-height: 1.1;
   cursor: pointer;
   outline: none;
+  transition: all 0.3s ease-in-out; 
+
+    &:hover{
+      color: $color-primary;
+      background-color: transparent;
+    }
 
     &.mg--clear{
       background: transparent;
-      border: solid 1px #fff;
+      border-color: #fff;
+
+        &:hover{
+          background-color: #fff;
+          color: $color-primary;
+        }
     }
 }
 
 .mg-cta_section{
-  &__header{
-    font-size: 3rem;
-  }
-
   .mg-button{
     margin-top: 60px;
-  }
-
-  a{
-    color: inherit;
   }
 }
 
 .mg-separator{
   background-color: $color-primary;
-  padding: 90px 0;
+  padding: 50px 0;
   color: #fff;
+  text-align: center;
+
+    .mg-button{
+      margin-top: 60px;
+    }
+    
+  @include media(md){
+    padding: 90px 0;
+    text-align: left;
+
+      .mg-button{
+        margin-top: 0;
+      }
+  }
 }
 
 .mg-text_section{
   &.mg--with_padding{
     padding: 120px 0;
-  }
-
-  &__paragraph{
-    padding-bottom: 30px;
   }
 
   &__list{
@@ -325,7 +374,7 @@ hr{
 
 
   .mg-button{
-    margin-top: 20px;
+    margin-top: 60px;
   }
 }
 
@@ -353,7 +402,7 @@ hr{
 .mg-work_categories{
   font-size: 1rem;
   text-transform: uppercase;
-  font-family: $ff-medium;
+  font-weight: $ff-semibold;
   letter-spacing: 1px;
 
     span + span{
@@ -366,16 +415,29 @@ hr{
     }
 }
 
-.mg-work_article__paggy{
-  font-size: 1.5rem;
+.mg-article_paggy{
   letter-spacing: 1px;
+  @include media(md){
+    font-size: 1.5rem;
+  }
 
     a{
-      height: 200px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+        @include media(md){
+          padding: 50px;
+        }
     }
 
     .mg-icon_arrow{
       margin: 0 10px;
+      & + p{
+        font-size: 0;
+        @include media(md){
+          font-size: inherit;
+        }
+      }
     }
 }
 
@@ -386,14 +448,19 @@ hr{
 
   .swiper-button-next,
   .swiper-button-prev{
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     margin-top: 0;
     background-image: none;
     border-radius: 3px;
-    background-color: $color-primary;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     box-shadow: $box-shadow;
+    transition: all 0.3s ease;
+    @include media(md){
+      width: 80px;
+      height: 80px;
+    }
 
       svg{
         g{
@@ -402,24 +469,43 @@ hr{
       }
 
       &:hover{
-        color: #000;
-        background-color: #fff;
+        color: #fff;
+        background-color: $color-primary;
       }
   }
 
   .swiper-button-next{
-    transform: translate(calc(50% - 15px), -50%);
+    transform: translate(0, -50%);
     right: 0;
+    @include media(md){
+      transform: translate(calc(50% - 15px), -50%);
+    }
+
+      svg{
+        position: relative;
+        right: -2px;
+      }
+   
   }
 
   .swiper-button-prev{
-    transform: translate(calc(-50% + 15px), -50%);
+    transform: translate(0, -50%);
     left: 0;
+    @include media(md){
+      transform: translate(calc(-50% + 15px), -50%);
+    }
+    
+      svg{
+        position: relative;
+        left: -2px;
+      }
+       
   }
 }
 
 .mg-work_separator{
-  height: 500px;
+  height: 100vw;
+  max-height: 500px;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -446,5 +532,46 @@ hr{
 
   a{
     margin: 0 5px;
+  }
+}
+
+.mg-main_article{
+  img{
+    max-width: 500px;
+  }
+
+  &__media-block{
+    @media screen and (max-width: 992px){
+      height: 450px;
+    }
+  }
+}
+
+.mg-work_link{
+  padding: 50px 0;
+  @media screen and (min-width: $mg-layout-md){
+    padding: 150px 0 0;
+
+    &:hover{
+      .mg-text_section{
+        .mg-icon_arrow{
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  &__image{
+    height: 100vw;
+
+      @media screen and (min-width: $mg-layout-md){
+        height: 400px;
+      }
+  }
+}
+
+.mg-text_section{
+  &:not(.mg--padding_sm){
+   padding: 1.5rem 0; 
   }
 }

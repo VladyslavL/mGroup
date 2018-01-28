@@ -20,4 +20,14 @@ var mySwiper = new Swiper ('.swiper-container', {
   // scrollbar: {
   //   el: '.swiper-scrollbar',
   // },
-})
+});
+
+function pageNavigationClassToggle() {
+  var elem = document.querySelector('.mg-page_navigation');
+  var body = document.querySelector('body');
+
+  elem.classList.toggle('mg--nav_is_opened');
+  body.classList.toggle('mg--nav_is_opened');
+}
+
+document.querySelector('#mg-page_nav__toggle-button').addEventListener('click', pageNavigationClassToggle);

@@ -10,4 +10,5 @@ Thumbs.db
 node_modules/
 bower_components/
 dist/
+deploy/
 package-lock.json
