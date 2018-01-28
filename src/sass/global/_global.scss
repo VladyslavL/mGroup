@@ -90,7 +90,7 @@ textarea{
   border: none;
   border-radius: 2px;
   margin-bottom: 20px;
-  font-size: 0.875rem;
+  font-size: inherit;
   outline: none;
   font-family: inherit;
 }
@@ -114,7 +114,6 @@ input::placeholder {
   position: relative;
   margin-bottom: 20px;
   height: 45px;
-  line-height: 20px;
   width: 100%;
   cursor: pointer;
   border: 1px dashed rgba(49,49,49,0.3);
@@ -146,6 +145,7 @@ input::placeholder {
 }
 
 form{
+  font-size: 0.875rem;
   padding-top: 100px;
 
     button{
