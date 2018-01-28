@@ -12,7 +12,8 @@ var gulp = require('gulp'),
   csso = require('gulp-csso'),
   htmlmin = require('gulp-html-minifier'),
   uglify = require('gulp-uglify'),
-  clean = require('gulp-clean');
+  clean = require('gulp-clean'),
+  ftp = require( 'vinyl-ftp' );
 
 
 gulp.task('html', function () {
@@ -132,14 +133,14 @@ gulp.task('d-script', function () {
     }))
     .pipe(uglify())
     .pipe(gulp.dest('deploy/js/'))
-})
+});
 
 gulp.task('d-images', function () {
   gulp.src(['src/images/**/*'])
     .pipe(plumber())
     .pipe(image())
     .pipe(gulp.dest('deploy/images/'))
-})
+});
 
 gulp.task('d-move', function () {
   gulp.src(['src/fonts/**/*'])
@@ -163,7 +164,7 @@ gulp.task('d-move', function () {
 
   gulp.src(['src/favicons/**/*'])
     .pipe(gulp.dest('deploy/favicons/'))
-})
+});
 
 gulp.task('deploy', ['d-html', 'd-style', 'd-script', 'd-images', 'd-move'], function () {
 
