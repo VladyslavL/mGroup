@@ -1,4 +1,7 @@
 @@include("node_modules/swiper/dist/js/swiper.min.js")
+@@include("node_modules/wowjs/dist/wow.min.js")
+
+new WOW().init();
 
 var mySwiper = new Swiper ('.swiper-container', {
   // Optional parameters

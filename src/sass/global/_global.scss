@@ -92,6 +92,7 @@ textarea{
   margin-bottom: 20px;
   font-size: 1rem;
   outline: none;
+  font-family: inherit;
 }
 
 textarea{
@@ -250,7 +251,7 @@ form{
     display: block;
     width: 100%;
     height: auto;
-    margin: 0 auto;
+    // margin: 0 auto;
   }
 
   &padding_{
@@ -285,6 +286,7 @@ hr{
 }
 
 .mg-button{
+  font-family: inherit;  
   display: inline-block;
   // min-height: 55px;
   line-height: 55px;
@@ -343,8 +345,15 @@ hr{
 }
 
 .mg-text_section{
+  @include media(xl){
+    max-width: 600px;
+  }
   &.mg--with_padding{
     padding: 120px 0;
+  }
+
+  &:not(.mg--padding_sm){
+    padding: 1.5rem 0; 
   }
 
   &__list{
@@ -370,8 +379,6 @@ hr{
     letter-spacing: 1.2px;
     padding: 30px 0 40px;
   }
-
-
 
   .mg-button{
     margin-top: 60px;
@@ -538,6 +545,9 @@ hr{
 .mg-main_article{
   img{
     max-width: 500px;
+    @include media(xl){
+      margin: 0;
+    }
   }
 
   &__media-block{
@@ -567,11 +577,5 @@ hr{
       @media screen and (min-width: $mg-layout-md){
         height: 400px;
       }
-  }
-}
-
-.mg-text_section{
-  &:not(.mg--padding_sm){
-   padding: 1.5rem 0; 
   }
 }
