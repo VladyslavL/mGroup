@@ -79,7 +79,7 @@ gulp.task('move', function () {
     .pipe(gulp.dest('dist/'))
 
   gulp.src(['src/favicons/**/*'])
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/favicons/'))
 })
 
 gulp.task('dev', ['html', 'style', 'script', 'images', 'move'], function () {
@@ -162,7 +162,7 @@ gulp.task('d-move', function () {
     .pipe(gulp.dest('deploy/'))
 
   gulp.src(['src/favicons/**/*'])
-    .pipe(gulp.dest('deploy/'))
+    .pipe(gulp.dest('deploy/favicons/'))
 })
 
 gulp.task('deploy', ['d-html', 'd-style', 'd-script', 'd-images', 'd-move'], function () {
