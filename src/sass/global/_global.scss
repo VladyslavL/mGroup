@@ -90,7 +90,7 @@ textarea{
   border: none;
   border-radius: 2px;
   margin-bottom: 20px;
-  font-size: inherit;
+  font-size: 0.875rem;
   outline: none;
   font-family: inherit;
 }
@@ -110,6 +110,7 @@ input::placeholder {
 }
 
 .mg-file_mask{
+  font-size: 0.875rem;  
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
@@ -145,7 +146,6 @@ input::placeholder {
 }
 
 form{
-  font-size: 0.875rem;
   padding-top: 100px;
 
     button{
