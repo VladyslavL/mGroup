@@ -4,9 +4,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "animate.css": "^3.5.2",
     "autoprefixer": "*",
-    "bootstrap": "^4.0.0-beta.3",
     "browser-sync": "*",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
@@ -20,8 +18,8 @@
     "gulp-sourcemaps": "*",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
-    "swiper": "^4.1.0",
-    "vinyl-ftp": "^0.6.1",
-    "wowjs": "^1.1.3"
+    "normalize.css": "*",
+    "swiper": "^4.2.0",
+    "vinyl-ftp": "^0.6.1"
   }
 }

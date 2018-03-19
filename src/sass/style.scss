@@ -1,13 +1,11 @@
 @import './global/vars';
 @import './global/reset';
 @import './global/global';
-@import '../../node_modules/bootstrap/scss/bootstrap-grid';
-@import '../../node_modules/animate.css/animate.min';
+@import './global/flex-classes';
 
 
 @import './components/page-header';
 @import './components/page-navigation';
-@import './components/review-block';
 @import './components/page-footer';
 
 @import 'global/vendors'

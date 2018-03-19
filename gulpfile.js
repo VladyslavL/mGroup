@@ -28,7 +28,7 @@ gulp.task('html', function () {
 })
 
 gulp.task('style', function () {
-  gulp.src(['src/sass/*.scss'])
+  gulp.src(['src/sass/*.+(scss|sass)'])
     .pipe(plumber())
     .pipe(fileInclude({
       prefix: '@@',
@@ -86,7 +86,11 @@ gulp.task('move', function () {
 gulp.task('dev', ['html', 'style', 'script', 'images', 'move'], function () {
 
   browserSync.init({
-    server: "dist"
+    server: {
+      baseDir: 'dist'
+    },
+    notify: true,
+    ghostMode: false
   });
 
   gulp.watch("src/sass/**/*.scss", ['style']);
@@ -98,7 +102,7 @@ gulp.task('dev', ['html', 'style', 'script', 'images', 'move'], function () {
 });
 
 
-//TASKS FOR THE DEPLOY===========================================================
+//TASKS FOR THE DEPLOY ===========================================================
 gulp.task('d-html', function () {
   gulp.src(["src/**/*.html", "!src/fonts/**", "!src/components/**"])
     .pipe(plumber())
@@ -109,7 +113,7 @@ gulp.task('d-html', function () {
     .pipe(htmlmin({
       collapseWhitespace: true
     }))
-    .pipe(gulp.dest('deploy/'))
+    .pipe(gulp.dest('app/'))
 })
 
 gulp.task('d-style', function () {
@@ -121,7 +125,7 @@ gulp.task('d-style', function () {
     }))
     .pipe(sass())
     .pipe(csso())
-    .pipe(gulp.dest('deploy/css/'))
+    .pipe(gulp.dest('app/css/'))
 });
 
 gulp.task('d-script', function () {
@@ -132,14 +136,14 @@ gulp.task('d-script', function () {
       basepath: '@root'
     }))
     .pipe(uglify())
-    .pipe(gulp.dest('deploy/js/'))
+    .pipe(gulp.dest('app/js/'))
 });
 
 gulp.task('d-images', function () {
   gulp.src(['src/images/**/*'])
     .pipe(plumber())
     .pipe(image())
-    .pipe(gulp.dest('deploy/images/'))
+    .pipe(gulp.dest('app/images/'))
 });
 
 gulp.task('d-move', function () {
@@ -149,7 +153,7 @@ gulp.task('d-move', function () {
       prefix: '@@',
       basepath: '@root'
     }))
-    .pipe(gulp.dest('deploy/fonts/'))
+    .pipe(gulp.dest('app/fonts/'))
 
   gulp.src(['src/php/**/*'])
     .pipe(plumber())
@@ -157,13 +161,13 @@ gulp.task('d-move', function () {
       prefix: '@@',
       basepath: '@root'
     }))
-    .pipe(gulp.dest('deploy/php/'))
+    .pipe(gulp.dest('app/php/'))
 
   gulp.src(['src/.htaccess'])
-    .pipe(gulp.dest('deploy/'))
+    .pipe(gulp.dest('app/'))
 
   gulp.src(['src/favicons/**/*'])
-    .pipe(gulp.dest('deploy/favicons/'))
+    .pipe(gulp.dest('app/favicons/'))
 });
 
 gulp.task('deploy', ['d-html', 'd-style', 'd-script', 'd-images', 'd-move'], function () {

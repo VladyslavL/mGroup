@@ -1,109 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  @@include('./src/components/head.html')
-</head>
+@@include('./src/components/head.html')
 <body>
   <main>
     @@include('./src/components/page-header.html')
-    @@include('./src/components/section-header.html', {
-      "title": "What do you need help with?",
-      "subtitle-classes": "col-md-8 offset-md-2",
-      "subtitle": " No matter how much or how little you need done, we're here to help. With knowledge, skill and hard work."
-    })
 
-    <article class="mg-main_article mg--pb_100">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-12 col-md-6 col-xl-5 offset-xl-1 order-md-2 wow fadeInUp">
-            <img src="images/graphics/graphics1@2x.jpg" class="mg--img_block" alt="">
+    <div class="mg-about layout horizontal center-center mg--text_color-white mg--screen_full">
+      <div class="container_lg layout horizontal">
+        <h2 class="mg-about__header mg--secondary">We’re Creative & Innovative Studio that specialising in strategy, design and web development.</h2>
+
+        <div>
+          <div class="layout horizontal">
+            <section class="mg-about__content-box">
+              <h4 class="mg-about__content-box_header"><span class="mg--opacity_05">01.</span>Research & Planning</h4>
+              <p>To know what all you want to achieve through your website is important to us. We spend time to understand all your requirements. </p>
+            </section>
+            <section class="mg-about__content-box">
+              <h4 class="mg-about__content-box_header"><span class="mg--opacity_05">02.</span>Easy - to - use and Intuitive Design</h4>            
+              <p>A successful site should be designed around aesthetics and usability. Because good web design has a positive impact on conversion.</p>
+            </section>
           </div>
 
-          <div class="col-12 col-md-6 offset-md-0 col-lg-5 offset-lg-1 d-flex justify-content-xl-end">
-            <section class="mg-text_section">
-              <h3 class="mg-text_section__header mg--h3">So, why mGroup?</h3>
-              <p class="mg-text_section__paragraph">We’re Creative & Innovative Web Design Studio that specialising in strategy, design and development. Our team know how to grow digital business or startup from scratch.</p>
-              <p class="mg-text_section__paragraph">We’re here to create unique solutions for your ideas, and we can help you to fix all the problems which you face on during developing business projects.</p>
-              <a href="contact.html" class="mg-button">Let’s Get Srarted</a>
+          <div class="layout horizontal">
+            <section class="mg-about__content-box">
+              <h4 class="mg-about__content-box_header"><span class="mg--opacity_05">03.</span>Fully Responsive & Retina-Ready Development</h4>            
+              <p>Our team of developers transforms designs into rich, interactive websites that are easy for visitors to use and easy for clients to maintain.</p>
+            </section>
+            <section class="mg-about__content-box">
+              <h4 class="mg-about__content-box_header"><span class="mg--opacity_05">04.</span>Secure, Professional Support</h4>            
+              <p>Does your team need an expert support? We’re ready to help you in many technologies and fields of expertise.</p>
             </section>
           </div>
         </div>
       </div>
-    </article>
+    </div>
 
-    <article class="mg-main_article mg--bg_secondary">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 col-lg-6 mg--bg_cover mg-main_article__media-block" style="background-image: url('images/1.jpg')">
-          </div>
-
-          <div class="col-12 col-md-10 offset-md-0 col-lg-5 offset-lg-1">
-            <section class="mg-text_section mg--padding_sm wow fadeInUp">
-              <h3 class="mg-text_section__header mg--h3">We Combine Web Design & Development</h3>
-              <p class="mg-text_section__paragraph">A successful site should be designed around aesthetics and usability. Because good web design has a positive impact on conversion.Our team of developers transforms designs into rich, interactive websites that are easy for visitors to use and easy for clients to maintain.</p>
-              <ul class="mg-text_section__list">
-                <li>
-                  <div class="d-flex flex-row align-items-center">
-                    <img src="./images/icons/icon-coding.svg" alt="">
-                    <div>
-                      <p>WordPress CMS, HTML5, CSS3, E-commerce</p>
-                      <span>Responsive frontend</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="d-flex flex-row align-items-center">
-                    <img src="./images/icons/icon-layers.svg" alt="">
-                    <div>
-                      <p>User Experience, User Interface Design</p>
-                      <span>Unique Website Design</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <a href="works-page.html" class="mg-button">View our Portfolio</a>
-            </section>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="mg-main_article mg--padding_sm">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-12 col-md-6 col-xl-5 offset-xl-1 order-md-2 wow fadeInUp">
-            <img src="images/graphics/graphics2@2x.jpg" class="mg--img_block" alt="">
-          </div>
-
-          <div class="col-12 col-md-6 offset-md-0 col-lg-5 offset-lg-1 d-flex justify-content-xl-end">
-            <section class="mg-text_section">
-              <h3 class="mg-text_section__header mg--h3">Thorough search engine optimisation (SEO)</h3>
-              <p class="mg-text_section__paragraph">Get more traffic, leads, and sales with our professional SEO service. Whether you need quality, engaging content or a complex mix of SEO strategies, you can start building your success today.</p>
-              <p class="mg-text_section__paragraph">From consultations to conversions, we will work as an extension of your company to deliver results.</p>
-              <a href="contact.html" class="mg-button">Let’s Get Srarted</a>
-            </section>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <section class="mg-separator">
+    <div class="mg-works">
       <div class="container">
-        <div class="row justify-content-between align-items-center">
-          <div class="col-12 col-md-9 col-lg-8">
-            <p class="mg-separator__text">We design and develop experiences that <b>makes people’s lives simple</b>. Share your ideas, mockups, product description to get a quote or ask us any questions and we’ll be happy to answer.</p>
-          </div>
-
-          <div class="col-md-3 d-flex justify-content-center">
-            <a href="contact.html" class="mg-button mg--clear">Get in Touch</a>
-          </div>
+        <div class="mg-works_grid">
+          <acticle class="mg-works_grid-article mg--bg_grey">
+            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
+          </acticle>
+          <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
+          </acticle>
+          <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
+          </acticle>
+          <acticle class="mg-works_grid-article mg--bg_grey">
+            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
+          </acticle>
         </div>
+
+        <a href="#" class="mg-works_btn">see more works <span>&rarr;</span></a>
       </div>
-    </section>
-    @@include('./src/components/review-section.html')
-    @@include("src/components/cta-section.html")
+    </div>
+
+    <div class="mg-tech">
+      <div class="container">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide"></div>
+          </div>
+      </div>
+      </div>
+    </div>
   </main>
   
-  @@include('./src/components/page-footer.html')  
+  @@include('./src/components/page-footer.html')
 </body>
 </html>

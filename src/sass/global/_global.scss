@@ -1,24 +1,61 @@
 html{
-  font-size: $font-size-global;
+  font-size: $font-size-global * 1px;
   -webkit-tap-highlight-color: transparent;
 }
 
 body{
   font-family: $ff;
-  font-size: 1.125rem;
   line-height: 1.5;
   background-color: #fff;
-  color: #4b4b4b;
-  font-weight: $ff-light;
+  color: rgba(0,0,0,0.5);
+  letter-spacing: 0.5px;
+  font-weight: $ff-regular;
 }
 
 h1,h2,h3,h4,h5,h6{
-  margin-bottom: 30px;
   color: #000;
   line-height: inherit;
-  font-weight: $ff-regular;
+  font-weight: $ff-bold;
+  letter-spacing: normal;  
 
-  .mg--text_color__white &{
+  .mg--text_color-white &{
+    color: #fff;
+  }
+}
+
+h1,
+.mg--h1{
+  @include fz-rem(80);
+  font-weight: $ff-bold;
+}
+
+h2,
+.mg--h2{
+  @include fz-rem(48);
+
+    &.mg--secondary{
+      @include fz-rem(24);
+    }
+}
+
+h3,
+.mg--h3{
+  @include fz-rem(36);
+}
+
+h4,
+.mg--h4{
+  @include fz-rem(18);
+  font-weight: $ff-semibold;
+}
+
+small{
+  @include fz-rem(12);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $color-black;
+
+  .mg--text_color-white &{
     color: #fff;
   }
 }
@@ -27,42 +64,16 @@ b{
   font-weight: $ff-bold;
 }
 
-p{
-  & + p{
-      padding-top: 30px;
-  }
-
-  & + ul{
-    padding-top: 60px;
-  }
-} 
-
-.mg--h1{
-  font-size: 2rem;
-  font-weight: $ff-semibold;
-  @include media(md){
-    font-size: 3rem;
-  }
-}
-
-.mg--h2{
-  font-size: 2.25rem;
-}
-
-.mg--h3{
-  font-size: 1.75rem;
-}
-
 [hidden]{
   display: none !important;
 }
 
 a{
-  text-decoration: none;
+  font-weight: $ff-semibold;
   color: inherit;
 
-    p &{
-      color: $color-primary;      
+    &:hover{
+      color: $color-primary;
     }
 
     &.mg--underlined{
@@ -79,82 +90,29 @@ ul{
   margin: 0;
   list-style: none;
 }
-
 input,
 textarea{
-  background-color: rgba(216,216,216,0.3);
-  padding-left: 20px;  
+  padding: 0 20px;
   width: 100%;
-  height: 45px;
+  height: 65px;
   line-height: normal;
   border: none;
-  border-radius: 2px;
-  margin-bottom: 20px;
   font-size: 0.875rem;
   outline: none;
   font-family: inherit;
+  background-color: #000;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: right;
 }
-
-textarea{
-  min-height: 200px;
-  resize: none;
-  padding: 10px 20px;
-}
-
-input::-webkit-input-placeholder,
-input::-ms-input-placeholder,
-input:-ms-input-placeholder,
-input::placeholder {
-  color: #000;
-  text-transform: uppercase;
-}
-
-.mg-file_mask{
-  font-size: 0.875rem;  
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 20px;
-  height: 45px;
-  width: 100%;
+button{
   cursor: pointer;
-  border: 1px dashed rgba(49,49,49,0.3);
-  padding-left: 20px;
-  line-height: 1;
-
-
-    input{
-      cursor: inherit;
-      display: block;
-      font-size: 999px;
-      min-height: 100%;
-      min-width: 100%;
-      opacity: 0;
-      position: absolute;
-      right: 0;
-      text-align: right;
-      top: 0;
-    }
-
-    img{
-      margin-right: 20px;
-    }
-
-    p{
-      position: relative;
-      top: 1px;
-    }
 }
 
-form{
-  padding-top: 100px;
-
-    button{
-      margin-top: 40px;
-    }
-}
-
-.d-flex{
-  display: flex;
+@include placeholder(true){
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 1;
 }
 
 .mg-icon_arrow{
@@ -194,18 +152,39 @@ form{
     }
 }
 
-
 .mg--{
-  &text_center{
-    text-align: center;
-  }
+  &text_{
+    &align-{
+      &center{
+        text-align: center;
+      }
+  
+      &right{
+        text-align: right;
+      }
+    }
 
-  &text_right{
-    text-align: right;
-  }
+    &color-{
+      &white{
+        color: #fff;
+      }
+    }
 
-  &text_color__white{
-    color: #fff;
+    &underlined{
+      position: relative;
+      z-index: 1;
+
+      &:after{
+       content: '';
+       position: absolute;
+       width: 100%;
+       height: 1.25rem;
+       bottom: 0.25rem;
+       left: 0;
+       z-index: -1;
+       background-color: $color-primary; 
+      }
+    }
   }
 
   &bg_cover{
@@ -223,8 +202,16 @@ form{
     background-color: $color-secondary;
   }
 
+  &bg_grey{
+    background-color: $color-grey;
+  }
+
   &block{
     display: block;
+  }
+
+  &flex{
+    display: flex;
   }
 
   &pb_100{
@@ -276,306 +263,227 @@ form{
       }
     }
   }
+
+  &opacity_{
+    &05{
+      opacity: 0.5;
+    }
+    &08{
+      opacity: 0.8;
+    }
+  }
+
+  &hide_{
+    &xs{
+      @include media(xs){
+        display: none;
+      }
+    }
+  }
+
+  &screen_{
+    &full{
+      min-height: 100vh;
+    }
+  }
 }
 
 hr{
-  background-color: rgba(0,0,0,0.05);
+  background-color: currentColor;
   margin: 0;
   height: 1px;
   border: none;
+  opacity: 0.1;
+}
+
+.container{
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+
+    &_lg{
+      max-width: 1330px;
+      padding: 0 15px;
+      margin: 0 auto;
+    }
 }
 
 .mg-button{
-  font-family: inherit;  
   display: inline-block;
-  // min-height: 55px;
-  line-height: 55px;
+  position: relative;
   width: 100%;
-  max-width: 255px;
+  max-width: 165px;
+  line-height: 50px;
+  font-family: inherit;  
+  font-size: 0.875rem;
   font-weight: $ff-semibold;
-  background-color: $color-primary;
-  border: 1px solid $color-primary;
-  color: #fff;
+  letter-spacing: 2px;
   text-align: center;
-  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
   cursor: pointer;
   outline: none;
-  transition: all 0.3s ease-in-out; 
-
-    &:hover{
-      color: $color-primary;
-      background-color: transparent;
-    }
-
-    &.mg--clear{
-      background: transparent;
-      border-color: #fff;
-
-        &:hover{
-          background-color: #fff;
-          color: $color-primary;
-        }
-    }
-}
-
-.mg-cta_section{
-  .mg-button{
-    margin-top: 60px;
-  }
-}
-
-.mg-separator{
-  background-color: $color-primary;
-  padding: 50px 0;
-  color: #fff;
-  text-align: center;
-
-    .mg-button{
-      margin-top: 60px;
-    }
-    
-  @include media(md){
-    padding: 90px 0;
-    text-align: left;
-
-      .mg-button{
-        margin-top: 0;
-      }
-  }
-}
-
-.mg-text_section{
-  @include media(xl){
-    max-width: 600px;
-  }
-  &.mg--with_padding{
-    padding: 120px 0;
-  }
-
-  &:not(.mg--padding_sm){
-    padding: 1.5rem 0; 
-  }
-
-  &__list{
-    li{
-      padding: 15px 0;
-
-        img{
-          margin-right: 25px;
-        }
-
-        span{
-          color: #8393A0;
-        }
-    }
-  }
-
-  .mg-work_categories{
-    color: rgba(110,108,108,0.3);
-  }
-
-  &__work_header{
-    font-size: 2.25rem;
-    letter-spacing: 1.2px;
-    padding: 30px 0 40px;
-  }
-
-  .mg-button{
-    margin-top: 60px;
-  }
-}
-
-.mg-feature_box{
-  width: 220px;
-  height: 220px;
   background-color: #fff;
-  box-shadow: $box-shadow;
-  margin: 10px;
-  padding: 25px;
-  border-radius: 10px;
-
-    &__header{
-      font-size: 3rem;
-      color: $color-primary;
-      margin-bottom: 10px;
-      line-height: 1;
-    }
-
-    &__text{
-
-    }
-}
-
-.mg-work_categories{
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-weight: $ff-semibold;
-  letter-spacing: 1px;
-
-    span + span{
-      &:before{
-        content: "|";
-        padding: 0 5px;
-        position: relative;
-        top: -0.09rem
-      }
-    }
-}
-
-.mg-article_paggy{
-  letter-spacing: 1px;
-  @include media(md){
-    font-size: 1.5rem;
+  color: #000;
+  transform: translate(-4px, -4px);
+  @include transition($name: transform);
+  &:before{
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid #000;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-radius: 1px;
+    transform: translateY(-0.05rem);
+    margin-right: 10px;
+    @include transition;
   }
-
-    a{
-      padding-top: 20px;
-      padding-bottom: 20px;
-
-        @include media(md){
-          padding: 50px;
-        }
-    }
-
-    .mg-icon_arrow{
-      margin: 0 10px;
-      & + p{
-        font-size: 0;
-        @include media(md){
-          font-size: inherit;
-        }
-      }
-    }
-}
-
-.mg-work_slider{
-  .swiper-container{
-    box-shadow: $box-shadow;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev{
-    width: 40px;
-    height: 40px;
-    margin-top: 0;
-    background-image: none;
-    border-radius: 3px;
-    background-color: #fff;
-    color: #000;
-    box-shadow: $box-shadow;
-    transition: all 0.3s ease;
-    @include media(md){
-      width: 80px;
-      height: 80px;
-    }
-
-      svg{
-        g{
-          fill: currentColor;
-        }
-      }
-
-      &:hover{
-        color: #fff;
-        background-color: $color-primary;
-      }
-  }
-
-  .swiper-button-next{
-    transform: translate(0, -50%);
-    right: 0;
-    @include media(md){
-      transform: translate(calc(50% - 15px), -50%);
-    }
-
-      svg{
-        position: relative;
-        right: -2px;
-      }
-   
-  }
-
-  .swiper-button-prev{
-    transform: translate(0, -50%);
+  &:after{
+    content: '';
+    box-sizing: border-box;     
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
     left: 0;
-    @include media(md){
-      transform: translate(calc(-50% + 15px), -50%);
+    border: 2px solid #fff;
+    transform: translate(8px, 8px);
+    @include transition;
+  }
+  &:hover{
+    color: initial;
+    transform: translate(0, 0);
+    &:before{
+      margin-right: 5px;
     }
-    
-      svg{
-        position: relative;
-        left: -2px;
-      }
-       
+    &:after{
+      transform: translate(0,0);
+    }
   }
 }
 
-.mg-work_separator{
-  height: 100vw;
-  max-height: 500px;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.mg-contact_links{
-  padding: 50px 0;
-
-    div + div{
-      padding-top: 20px;
-    }
-
-    img{
-      margin-right: 10px;
-      width: 20px;
-    }
-}
-
-.mg-social_links{
+.mg-about{
+  background: $color-primary linear-gradient(90deg,
+  $color-primary calc(100% - 1px), rgba(255,255,255,0.1) 1px
+  ) center / 250px repeat;
+  padding: 110px 0;
   &__header{
-    font-size: 1.25rem;
-    margin-bottom: 20px;
+    margin: 35px 70px;
   }
 
-  a{
-    margin: 0 5px;
-  }
-}
-
-.mg-main_article{
-  img{
-    max-width: 500px;
-    @include media(xl){
-      margin: 0;
-    }
-  }
-
-  &__media-block{
-    @media screen and (max-width: 992px){
-      height: 450px;
+  &__content-box{
+    margin: 35px 50px;
+    width: 50%;
+    padding-left: 35px;
+    position: relative;
+    &_header{
+      padding-bottom: 20px;
+      span{
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
     }
   }
 }
 
-.mg-work_link{
-  padding: 50px 0;
-  @media screen and (min-width: $mg-layout-md){
-    padding: 150px 0 0;
-
-    &:hover{
-      .mg-text_section{
-        .mg-icon_arrow{
-          width: 100px;
+.mg-works{
+  padding-top: 150px;
+  &_header{
+    padding-top: 320px;
+    .container{
+      max-width: 900px;
+    }
+  }
+  &_grid{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    &-article{
+      height: 600px;
+      position: relative;
+      &:hover .grid-overlay{
+        opacity: 1;
+      }
+      & .grid-overlay{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $color-primary;
+        opacity: 0;
+        @include transition;
+      }
+      &.mg--elem_lg{
+        grid-column-start: span 2;
+        .grid-overlay{
+          top: 30px;
+          right: 30px;
+          bottom: 30px;
+          left: 30px;
         }
       }
     }
   }
 
-  &__image{
-    height: 100vw;
-
-      @media screen and (min-width: $mg-layout-md){
-        height: 400px;
+  &_btn{
+    display: block;
+    padding: 100px 0;
+    font-weight: $ff-regular;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    @include transition;
+    span{
+      display: inline-block;
+      @include transition;
+    }
+    &:hover{
+      color: initial;
+      span{
+        transform: translateX(5px);
       }
+    }
+  }
+}
+
+.mg-work_article{
+  .mg-works_header{
+    padding-bottom: 250px;
+  }
+  &-image{
+    @include aspect-ratio(16,9);
+  }
+  &-dscr{
+    max-width: 950px;
+    padding: 150px 0;
+    margin: 0 auto;
+  }
+  &-btn{
+    color: inherit;
+    padding: 150px 0;
+    text-decoration: none;
+    font-weight: $ff-regular;
+    p{
+      line-height: 1;
+      color: #000;
+    }
+  }
+}
+
+
+// Animation
+@keyframes blink {
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
 }

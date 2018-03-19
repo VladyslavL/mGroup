@@ -1,21 +1,93 @@
-.mg-page_footer{
-  &__nav{
-      a{
-        text-decoration: none;
-        margin: 35px 10px;
-        color: inherit;
-        @media screen and (min-width: $mg-layout-md){
-          margin: 35px 30px;          
+.mg-footer{
+  padding-top: 190px;
+  background-color: #000;
+  &_title{
+    padding-bottom: 15px;
+    span{
+      display: inline-block;
+      margin-left: 10px;
+      width: 8px;
+      height: 8px;
+      background-color: $color-primary;
+    }
+  }
+  &_subtitle{
+    margin-bottom: 115px;
+    .blinking{
+      display: inline-block;
+      width: 10px;
+      height: 2px;
+      background-color: #fff;
+      animation: 1s blink step-end infinite;
+    }
+  }
+  &_smallbox{
+    max-width: 277px;
+    margin-right: 200px;    
+  }
+  &_emailbox{
+    p{
+      padding-bottom: 15px;
+    }
+  }
+  &_form{
+    margin-top: 130px;
+    margin-bottom: 250px;
+    background-color: #fff;
+    text-align: right;
+    input{
+      padding: 0 80px 0 0;
+      &:focus{
+        padding: 0 20px 0 0;
+      }
+      & + input,
+      & + button{
+        margin-left: 1px;
+        max-width: 250px;
+        width: 100%;
+        text-align: left;
+        padding: 0 0 0 80px;
+        &:focus{
+          padding: 0 0 0 20px;
         }
       }
+    }
+    .layout + .layout{
+      margin-top: 1px;
+    }
+
+    button{
+      background-color: #000;
+      border: none;
+      width: 50%;
+      color: #fff;
+      text-transform: uppercase;
+      outline: none;
+      text-align: left;
+      font-size: 0.875rem;
+      padding-left: 80px;
+    }
   }
-
+  &_bot{
+    padding: 50px 0;
+  }
   .copy{
-    padding: 15px 0;
     font-size: 0.875rem;
-
-      .mg-icon_heart{
-        margin: 0 5px;
+  }
+  .social{
+    a{
+      display: block;
+      height: 16px;
+      margin-left: 20px;
+      opacity: 0.8;
+      line-height: 1;
+      @include transition;
+      &:hover{
+        opacity: 1;
       }
+    }
+    svg{
+      fill: #fff;
+    }
   }
 }

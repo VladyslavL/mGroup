@@ -1,12 +1,16 @@
 $bg-color-media: #D8D8D8;
 
-$color-primary: #4B8AF7;
-$color-secondary: #FBFBFB;
+$color-primary: #0828CC;
+$color-secondary: #FF2250;
+$color-black: #000;
+$color-grey: #ccc;
 
-$font-size-global: 16px;
+$font-size-global: 16;
+
+$transition: all 0.3s ease-in-out;
 
 $box-shadow: 0 9px 19px 0 rgba(176,188,207,0.3);
-$ff: 'Nunito', sans-serif;
+$ff: 'Poppins', sans-serif;
 
 $ff-extralight: 200;
 $ff-light: 300;
@@ -21,9 +25,17 @@ $mg-layout-md: 768px;
 $mg-layout-lg: 992px;
 $mg-layout-xl: 1200px;
 
+@mixin transition($name: all, $duration: 0.3s, $delay: 0s, $time-func: ease-in-out){
+  transition: $name $duration $delay $time-func;
+}
+
+@mixin fz-rem($fz) {
+  font-size: ($fz / $font-size-global) * 1rem;
+}
+
 @mixin media($media) {
   @if $media == xs {
-    @media only screen and (max-width: $mg-layout-xs - 1) { @content; }
+    @media only screen and (max-width: $mg-layout-sm - 1) { @content; }
   }
   @else if $media == sm {
     @media only screen and (min-width: $mg-layout-sm) { @content; }
@@ -36,5 +48,48 @@ $mg-layout-xl: 1200px;
   }
   @else if $media == xl {
     @media only screen and (min-width: $mg-layout-xl) { @content; }
+  }
+}
+
+@mixin placeholder($hide-on-focus: false) {
+  input::-webkit-input-placeholder {
+    @content;
+  }
+  input::-moz-placeholder {
+    @content;
+  }
+  input::-ms-placeholder {
+    @content;
+  }
+  input::placeholder {
+    @content;
+  }
+  @if $hide-on-focus == true {
+    input:focus::-webkit-input-placeholder{
+      opacity: 0;
+    }
+    input:focus::-moz-placeholder{
+      opacity: 0;
+    }
+    input:focus::-ms-placeholder{
+      opacity: 0;
+    }
+    input:focus::placeholder{
+      opacity: 0;
+    }
+  }
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-top: ($height / $width) * 100%;
+  & > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }

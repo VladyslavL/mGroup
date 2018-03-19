@@ -1,46 +1,40 @@
 .mg-page_header{
-  position: relative;
-    
-    &:before{
+  &__bg{
+    filter: grayscale(1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    &:after{
       content: '';
       position: absolute;
-      z-index: 1;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: $color-primary;
-      opacity: 0.9;
-    }
-
-    .container{
-      position: relative;
       z-index: 2;
+      background-color: $color-black;
+      opacity: 0.7;
     }
+  }
 
-    &__content{
-      .mg--index_page &{
-        min-height: 700px;
+  &__title{
+    padding: 0 15px;
+  }
+
+  &__bottombox{
+    padding: 100px 0;
+
+      img{
+        margin-bottom: 10px;
       }
-      min-height: 400px;
-      padding: 50px 0;
-    }
+  }
 
-    &__title{
-      color: inherit;
-    }
-
-    .mg-button{
-      margin-top: 60px;
-    }
-
-    &__bottombox{
-      p{
-        letter-spacing: 1.2px;
-        font-size: 0.625rem;
-        font-weight: $ff-semibold;
-        text-transform: uppercase;
-        padding-top: 20px;
-      }
-    }
+  .container{
+    position: relative;
+    z-index: 2;
+  }
 }
