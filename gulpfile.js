@@ -8,16 +8,15 @@ var gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   sass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps'),
-  image = require('gulp-image'),
+  imagemin = require('gulp-imagemin'),
   csso = require('gulp-csso'),
   htmlmin = require('gulp-html-minifier'),
   uglify = require('gulp-uglify'),
   clean = require('gulp-clean'),
   ftp = require( 'vinyl-ftp' );
 
-
 gulp.task('html', function () {
-  gulp.src(["src/**/*.html", "!src/fonts/**", "!src/components/**"])
+  gulp.src(["src/**/*.html", "!src/fonts/**"])
     .pipe(plumber())
     .pipe(fileInclude({
       prefix: '@@',
@@ -89,11 +88,10 @@ gulp.task('dev', ['html', 'style', 'script', 'images', 'move'], function () {
     server: {
       baseDir: 'dist'
     },
-    notify: true,
-    ghostMode: false
+    notify: true
   });
 
-  gulp.watch("src/sass/**/*.scss", ['style']);
+  gulp.watch("src/sass/**/*.+(scss|sass)", ['style']);
   gulp.watch("src/js/**/*.*", ['script']);
   gulp.watch("src/**/*.html", ['html']);
   gulp.watch("src/images/**/*.*", ['images']);
@@ -103,50 +101,50 @@ gulp.task('dev', ['html', 'style', 'script', 'images', 'move'], function () {
 
 
 //TASKS FOR THE DEPLOY ===========================================================
-gulp.task('d-html', function () {
+gulp.task('b-html', function () {
   gulp.src(["src/**/*.html", "!src/fonts/**", "!src/components/**"])
     .pipe(plumber())
     .pipe(fileInclude({
       prefix: '@@',
       basepath: '@root'
     }))
-    .pipe(htmlmin({
-      collapseWhitespace: true
-    }))
+    // .pipe(htmlmin({
+    //   collapseWhitespace: true
+    // }))
     .pipe(gulp.dest('app/'))
 })
 
-gulp.task('d-style', function () {
-  gulp.src(['src/sass/*.scss'])
+gulp.task('b-style', function () {
+  gulp.src(['src/sass/*.+(scss|sass)'])
     .pipe(plumber())
     .pipe(fileInclude({
       prefix: '@@',
       basepath: '@root'
     }))
     .pipe(sass())
-    .pipe(csso())
+    // .pipe(csso())
     .pipe(gulp.dest('app/css/'))
 });
 
-gulp.task('d-script', function () {
+gulp.task('b-script', function () {
   gulp.src(['src/js/*.js'])
     .pipe(plumber())
     .pipe(fileInclude({
       prefix: '@@',
       basepath: '@root'
     }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('app/js/'))
 });
 
-gulp.task('d-images', function () {
+gulp.task('b-images', function () {
   gulp.src(['src/images/**/*'])
     .pipe(plumber())
-    .pipe(image())
+    .pipe(imagemin())
     .pipe(gulp.dest('app/images/'))
 });
 
-gulp.task('d-move', function () {
+gulp.task('b-move', function () {
   gulp.src(['src/fonts/**/*'])
     .pipe(plumber())
     .pipe(fileInclude({
@@ -170,6 +168,6 @@ gulp.task('d-move', function () {
     .pipe(gulp.dest('app/favicons/'))
 });
 
-gulp.task('deploy', ['d-html', 'd-style', 'd-script', 'd-images', 'd-move'], function () {
+gulp.task('build', ['b-html', 'b-style', 'b-script', 'b-images', 'b-move'], function () {
 
 })

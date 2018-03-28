@@ -25,8 +25,8 @@ $mg-layout-md: 768px;
 $mg-layout-lg: 992px;
 $mg-layout-xl: 1200px;
 
-@mixin transition($name: all, $duration: 0.3s, $delay: 0s, $time-func: ease-in-out){
-  transition: $name $duration $delay $time-func;
+@mixin transition($name: all, $duration: 0.3s, $delay: 0s, $time-func: ease){
+  transition: $name $duration $time-func $delay;
 }
 
 @mixin fz-rem($fz) {

@@ -3,6 +3,21 @@
   <main>
     @@include('./src/components/page-header.html')
 
+    <header class="mg-page_header layout vertical end-justified mg--text_align-center mg--text_color-white mg--screen_full">
+        <div class="mg-page_header__bg">
+          <img src="images/bg.jpg" alt="">
+        </div>
+        
+        <section class="container">
+          <h1 class="mg-page_header__title mg--h2">We provide <span class="mg--text_underlined">high quality</span> and <span class="mg--text_underlined">cost effective</span> web development services</h1>
+    
+          <div class="mg-page_header__bottombox">
+            <img src="images/icons/icon-mouse.svg" alt="" width="25px" height="35px">
+            <p><small>scroll to discover more</small></p>
+          </div>
+        </section>
+    </header>
+
     <div class="mg-about layout horizontal center-center mg--text_color-white mg--screen_full">
       <div class="container_lg layout horizontal">
         <h2 class="mg-about__header mg--secondary">We’re Creative & Innovative Studio that specialising in strategy, design and web development.</h2>
@@ -33,21 +48,45 @@
       </div>
     </div>
 
+    <div class="mg-techs">
+      <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/tech-icons/1.png" alt=""></div>
+            <div class="swiper-slide"><img src="images/tech-icons/2.png" alt=""></div>
+            <div class="swiper-slide"><img src="images/tech-icons/3.png" alt=""></div>
+            <div class="swiper-slide"><img src="images/tech-icons/4.png" alt=""></div>
+            <div class="swiper-slide"><img src="images/tech-icons/5.png" alt=""></div>
+          </div>
+      </div>
+    </div>
+
     <div class="mg-works">
       <div class="container">
         <div class="mg-works_grid">
           <acticle class="mg-works_grid-article mg--bg_grey">
-            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
+            <img src="images/works/Copy/Copy-grid2x.jpg" class="mg--img_cover" alt="">
+            <div class="grid-overlay"><a href="work-article-1.html" class="mg-button">View case</a></div>
           </acticle>
           <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
-            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
+            <img src="images/works/Archi/Archi-grid@2x.jpg" alt="" class="mg--img_cover">
+            <div class="grid-overlay"><a href="work-article-2.html" class="mg-button">View case</a></div>
           </acticle>
           <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
-            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
+            <img src="images/works/FerBuy/FerBuy-grid2x.jpg" alt="" class="mg--img_cover">
+            <div class="grid-overlay"><a href="work-article-3.html" class="mg-button">View case</a></div>
           </acticle>
           <acticle class="mg-works_grid-article mg--bg_grey">
-            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
+            <img src="images/works/Chillisauce/Сhillisauce-grid@2x.jpg" alt="" class="mg--img_cover">            
+            <div class="grid-overlay"><a href="work-article-4.html" class="mg-button">View case</a></div>
           </acticle>
+          <acticle class="mg-works_grid-article mg--bg_grey">
+              <img src="images/works/Forum/Forum-grid@2x.jpg" class="mg--img_cover" alt="">
+              <div class="grid-overlay"><a href="work-article-5.html" class="mg-button">View case</a></div>
+            </acticle>
+            <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+              <img src="images/works/PinWall/PinWall-grid@2x.jpg" alt="" class="mg--img_cover">
+              <div class="grid-overlay"><a href="work-article-6.html" class="mg-button">View case</a></div>
+            </acticle>
         </div>
 
         <a href="#" class="mg-works_btn">see more works <span>&rarr;</span></a>

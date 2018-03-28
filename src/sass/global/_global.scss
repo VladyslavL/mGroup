@@ -241,6 +241,14 @@ button{
     // margin: 0 auto;
   }
 
+  &img_cover{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+  }
+
   &padding_{
     &sm{
       padding: 50px 0;
@@ -336,8 +344,7 @@ hr{
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
     border-radius: 1px;
-    transform: translateY(-0.05rem);
-    margin-right: 10px;
+    transform: translate(-10px, -0.05rem);
     @include transition;
   }
   &:after{
@@ -356,10 +363,182 @@ hr{
     color: initial;
     transform: translate(0, 0);
     &:before{
-      margin-right: 5px;
+      transform: translate(-5px, -0.05rem);
     }
     &:after{
       transform: translate(0,0);
+    }
+  }
+}
+
+.mg-page_header{
+  &__bg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    img{
+      // filter: grayscale(1);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:after{
+      // content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      background-color: $color-primary;
+      opacity: 0.7;
+    }
+    &:before{
+      // content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 3;
+      background-color: $color-black;
+      opacity: 0.7;
+    }
+  }
+
+  &__title{
+    padding: 0 15px;
+  }
+
+  &__bottombox{
+    padding: 100px 0;
+
+      img{
+        margin-bottom: 10px;
+      }
+  }
+
+  .container{
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.mg-logo{
+  position: absolute;
+  top: 35px;
+  left: 3vw;
+  z-index: 2;
+  line-height: 1;
+}
+
+.mg-nav{
+  position: absolute;
+  top: 35px;
+  right: 3vw;
+  z-index: 2;
+  nav{
+    a{
+      display: block;
+      font-weight: $ff-semibold;
+      margin: 0 30px;
+      text-transform: capitalize;
+      text-decoration: none;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(-15px);
+      visibility: hidden;
+      @include transition;
+      &:hover,
+      &.active{
+        color: currentColor;
+        &:after{
+          content: '';
+          width: 100%;
+          height: 0.5em;
+          background-color: $color-primary;
+          position: absolute;
+          left: 0;
+          bottom: -0.065em;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  &_btn{
+    width: 32px;
+    height: 21px;
+    position: relative;
+    cursor: pointer;
+    div{
+      height: 3px;
+      width: 100%;
+      background-color: currentColor;
+      position: absolute;
+      top: 0;
+      right: 0;
+      &:nth-child(1){
+        transition: top 0.3s 0.3s ease, transform 0.3s 0s ease, width 0.3s ease;
+      }
+      &:nth-child(2){
+        top: 9px;
+        width: 60%;
+        @include transition;        
+      }
+      &:nth-child(3){
+        top: 18px;
+        width: 80%;
+        transition: top 0.3s 0.3s ease, transform 0.3s 0s ease, width 0.3s ease;
+      }
+    }
+    &:hover{
+      div{
+        width: 100%;
+      }
+    }
+  }
+  &.is-opened{
+    nav{
+      a{
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+        &:nth-child(1){
+          transition-delay: 0.4s;
+        }
+        &:nth-child(2){
+          transition-delay: 0.3s;
+        }
+        &:nth-child(3){
+          transition-delay: 0.2s;
+        }
+        &:nth-child(4){
+          transition-delay: 0.1s;
+        }
+      }
+    }
+    .mg-nav_btn{
+      div{
+        width: 100%;
+        top: 9px;
+        &:nth-child(1){
+          transform: rotate(-45deg);
+          transition: top 0.3s 0s ease, transform 0.3s 0.3s ease, width 0.3s ease;          
+        }
+        &:nth-child(2){
+          opacity: 0;
+        }
+        &:nth-child(3){
+          transform: rotate(45deg);
+          transition: top 0.3s 0s ease, transform 0.3s 0.3s ease, width 0.3s ease;          
+        }
+      }
     }
   }
 }
@@ -389,6 +568,28 @@ hr{
   }
 }
 
+.mg-techs{
+  .swiper-container{
+    background: #F3F3F3;
+    height: 150px;
+  }
+  .swiper-slide{
+    // width: 150px;
+    // padding: 25px 0;
+    img{
+      // display: block;
+      // max-height: 65px;
+      // height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // filter: grayscale(1);
+      // opacity: 0.6;
+    }
+  }
+}
+
 .mg-works{
   padding-top: 150px;
   &_header{
@@ -404,6 +605,7 @@ hr{
     &-article{
       height: 600px;
       position: relative;
+      overflow: hidden;
       &:hover .grid-overlay{
         opacity: 1;
       }
@@ -459,6 +661,11 @@ hr{
   }
   &-image{
     @include aspect-ratio(16,9);
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
   &-dscr{
     max-width: 950px;
