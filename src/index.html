@@ -1,9 +1,11 @@
 @@include('./src/components/head.html')
 <body>
   <main>
-    @@include('./src/components/page-header.html')
+    @@include('./src/components/page-header.html',{
+      "classes": "mg--text_color-white"
+    })
 
-    <header class="mg-page_header layout vertical end-justified mg--text_align-center mg--text_color-white mg--screen_full">
+    <header class="mg-page_header layout vertical end-justified mg--padding-nav mg--text_align-center mg--text_color-white mg--screen_full">
         <div class="mg-page_header__bg">
           <img src="images/bg.jpg" alt="">
         </div>
@@ -19,28 +21,28 @@
     </header>
 
     <div class="mg-about layout horizontal center-center mg--text_color-white mg--screen_full">
-      <div class="container_lg layout horizontal">
-        <h2 class="mg-about__header mg--secondary">We’re Creative & Innovative Studio that specialising in strategy, design and web development.</h2>
+      <div class="container_lg layout horizontal justified">
+        <h2 class="mg-about__header mg--secondary mg--text_align-right">We’re Creative & Innovative Studio <span class="mg--text_nowrap">that specialising in</span> <span class="mg--text_nowrap">strategy, design and</span> <span class="mg--text_nowrap">web development.</span></h2>
 
         <div>
-          <div class="layout horizontal">
+          <div class="layout horizontal mg--content_wrapper">
             <section class="mg-about__content-box">
-              <h4 class="mg-about__content-box_header"><span class="mg--opacity_05">01.</span>Research & Planning</h4>
+              <h4 class="mg-about__content-box_header mg--pb"><span class="list-num mg--opacity_05">01.</span>Research & Planning</h4>
               <p>To know what all you want to achieve through your website is important to us. We spend time to understand all your requirements. </p>
             </section>
             <section class="mg-about__content-box">
-              <h4 class="mg-about__content-box_header"><span class="mg--opacity_05">02.</span>Easy - to - use and Intuitive Design</h4>            
+              <h4 class="mg-about__content-box_header mg--pb"><span class="list-num mg--opacity_05">02.</span>Clean & Intuitive Interfaces</h4>            
               <p>A successful site should be designed around aesthetics and usability. Because good web design has a positive impact on conversion.</p>
             </section>
           </div>
 
-          <div class="layout horizontal">
+          <div class="layout horizontal mg--content_wrapper">
             <section class="mg-about__content-box">
-              <h4 class="mg-about__content-box_header"><span class="mg--opacity_05">03.</span>Fully Responsive & Retina-Ready Development</h4>            
+              <h4 class="mg-about__content-box_header mg--pb"><span class="list-num mg--opacity_05">03.</span>Fully Responsive & <br> Retina-Ready Development</h4>            
               <p>Our team of developers transforms designs into rich, interactive websites that are easy for visitors to use and easy for clients to maintain.</p>
             </section>
             <section class="mg-about__content-box">
-              <h4 class="mg-about__content-box_header"><span class="mg--opacity_05">04.</span>Secure, Professional Support</h4>            
+              <h4 class="mg-about__content-box_header mg--pb"><span class="list-num mg--opacity_05">04.</span>Secure, Professional <br> Support</h4>            
               <p>Does your team need an expert support? We’re ready to help you in many technologies and fields of expertise.</p>
             </section>
           </div>
@@ -63,44 +65,44 @@
     <div class="mg-works">
       <div class="container">
         <div class="mg-works_grid">
-          <acticle class="mg-works_grid-article mg--bg_grey">
+          <div>
+          <article class="mg-works_grid-article mg--bg_grey">
             <img src="images/works/Copy/Copy-grid2x.jpg" class="mg--img_cover" alt="">
             <div class="grid-overlay"><a href="work-article-1.html" class="mg-button">View case</a></div>
-          </acticle>
-          <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+          </article>
+          <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
             <img src="images/works/Archi/Archi-grid@2x.jpg" alt="" class="mg--img_cover">
             <div class="grid-overlay"><a href="work-article-2.html" class="mg-button">View case</a></div>
-          </acticle>
-          <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+          </article>
+        </div>
+        <div>
+          <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
             <img src="images/works/FerBuy/FerBuy-grid2x.jpg" alt="" class="mg--img_cover">
             <div class="grid-overlay"><a href="work-article-3.html" class="mg-button">View case</a></div>
-          </acticle>
-          <acticle class="mg-works_grid-article mg--bg_grey">
+          </article>
+          <article class="mg-works_grid-article mg--bg_grey">
             <img src="images/works/Chillisauce/Сhillisauce-grid@2x.jpg" alt="" class="mg--img_cover">            
             <div class="grid-overlay"><a href="work-article-4.html" class="mg-button">View case</a></div>
-          </acticle>
-          <acticle class="mg-works_grid-article mg--bg_grey">
+          </article>
+        </div>
+          <!-- <article class="mg-works_grid-article mg--bg_grey">
               <img src="images/works/Forum/Forum-grid@2x.jpg" class="mg--img_cover" alt="">
               <div class="grid-overlay"><a href="work-article-5.html" class="mg-button">View case</a></div>
-            </acticle>
-            <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+            </article>
+            <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
               <img src="images/works/PinWall/PinWall-grid@2x.jpg" alt="" class="mg--img_cover">
               <div class="grid-overlay"><a href="work-article-6.html" class="mg-button">View case</a></div>
-            </acticle>
+            </article> -->
         </div>
 
-        <a href="#" class="mg-works_btn">see more works <span>&rarr;</span></a>
+        <a href="works.html" class="mg-works_btn">see more works <span>&rarr;</span></a>
       </div>
     </div>
 
-    <div class="mg-tech">
-      <div class="container">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-              <div class="swiper-slide"></div>
-          </div>
-      </div>
-      </div>
+    <div class="mg-job mg--text_align-center layout vertical center-center mg--bg_cover" style="background-image: url(./images/mask.png)">
+      <h3 class="mg--h6 mg--pb">Send us your CV and we will contact you shortly!</h3>
+      <h4 class="mg--h2 mg--pb"><span class="mg--text_unbreakable">￼￼Do you want to become a part of our team?</span><span class="mg--text_unbreakable">We are searching talents!</span></h4>
+      <a href="mail:mondaygroup.studio@gmail.com" class="mg-button mg--primary">Write us</a>
     </div>
   </main>
   

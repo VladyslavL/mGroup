@@ -1,3 +1,7 @@
+@import "../../../node_modules/rfs/scss/rfs";
+
+$rfs-breakpoint: 1300;
+
 $bg-color-media: #D8D8D8;
 
 $color-primary: #0828CC;
@@ -5,7 +9,7 @@ $color-secondary: #FF2250;
 $color-black: #000;
 $color-grey: #ccc;
 
-$font-size-global: 16;
+$font-size-global: 10;
 
 $transition: all 0.3s ease-in-out;
 
@@ -20,13 +24,23 @@ $ff-bold: 700;
 $ff-extrabold: 800; 
 $ff-black: 900;
 
-$mg-layout-sm: 576px;
-$mg-layout-md: 768px;
-$mg-layout-lg: 992px;
-$mg-layout-xl: 1200px;
+$mg-layout-sm: 320px;
+$mg-layout-md: 600px;
+$mg-layout-xmd: 800px;
+$mg-layout-lg: 1024px;
+$mg-layout-xlg: 1100px;
+$mg-layout-xl: 1300px;
 
-@mixin transition($name: all, $duration: 0.3s, $delay: 0s, $time-func: ease){
-  transition: $name $duration $time-func $delay;
+@mixin transition($name: all, $duration: 0.5s, $delay: 0s, $time-func: ease){
+  @if lenght($name) == 1 {
+    transition: nth($name, 1) $duration $time-func $delay;
+  }
+  @else if length($name) == 2 {
+    transition: nth($name, 1) $duration $time-func $delay, nth($name, 2) $duration $time-func $delay;
+  }
+  @else{
+    transition: $name $duration $time-func $delay;    
+  }
 }
 
 @mixin fz-rem($fz) {
@@ -35,7 +49,7 @@ $mg-layout-xl: 1200px;
 
 @mixin media($media) {
   @if $media == xs {
-    @media only screen and (max-width: $mg-layout-sm - 1) { @content; }
+    @media only screen and (max-width: $mg-layout-md - 1) { @content; }
   }
   @else if $media == sm {
     @media only screen and (min-width: $mg-layout-sm) { @content; }
@@ -43,15 +57,24 @@ $mg-layout-xl: 1200px;
   @else if $media == md {
     @media only screen and (min-width: $mg-layout-md) { @content; }
   }
+  @else if $media == xmd {
+    @media only screen and (min-width: $mg-layout-xmd) { @content; }
+  }
   @else if $media == lg {
     @media only screen and (min-width: $mg-layout-lg) { @content; }
+  }
+  @else if $media == xlg {
+    @media only screen and (min-width: $mg-layout-xlg) { @content; }
   }
   @else if $media == xl {
     @media only screen and (min-width: $mg-layout-xl) { @content; }
   }
+  @else if type-of($media) == number {
+    @media only screen and (min-width: $media)  {@content}
+  }
 }
 
-@mixin placeholder($hide-on-focus: false) {
+@mixin placeholder($focus-color: false, $hide-on-focus: false) {
   input::-webkit-input-placeholder {
     @content;
   }
@@ -78,6 +101,20 @@ $mg-layout-xl: 1200px;
       opacity: 0;
     }
   }
+  @if $focus-color != false {
+    input:focus::-webkit-input-placeholder{
+      color: $focus-color;
+    }
+    input:focus::-moz-placeholder{
+      color: $focus-color;
+    }
+    input:focus::-ms-placeholder{
+      color: $focus-color;
+    }
+    input:focus::placeholder{
+      color: $focus-color;
+    }
+  }
 }
 
 @mixin aspect-ratio($width, $height) {
@@ -92,4 +129,122 @@ $mg-layout-xl: 1200px;
     right: 0;
     bottom: 0;
   }
+}
+
+/// poly-fluid-sizing
+/// Generate linear interpolated size values through multiple break points
+/// @param $property - A string CSS property name
+/// @param $map - A SASS map of viewport unit and size value pairs
+/// @requires function linear-interpolation
+/// @requires function map-sort
+/// @example
+///   @include poly-fluid-sizing('font-size', (576px: 22px, 768px: 24px, 992px: 34px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@mixin poly-fluid-sizing($property, $map) {
+  // Get the number of provided breakpoints
+  $length: length(map-keys($map));
+  
+  // Error if the number of breakpoints is < 2
+  @if ($length < 2) {
+    @error "poly-fluid-sizing() $map requires at least values"
+  }
+
+  // Sort the map by viewport width (key)
+  $map: map-sort($map);
+  $keys: map-keys($map);
+
+  // Minimum size
+  #{$property}: map-get($map, nth($keys,1));
+  
+  // Interpolated size through breakpoints
+  @for $i from 1 through ($length - 1) {
+    @media (min-width:nth($keys,$i)) {
+      #{$property}: linear-interpolation((nth($keys,$i): map-get($map, nth($keys,$i)), nth($keys,($i+1)): map-get($map, nth($keys,($i + 1)))));
+    }
+  }
+  
+  // Maxmimum size
+  @media (min-width:nth($keys,$length)) {
+    #{$property}: map-get($map, nth($keys,$length));
+  }
+}
+
+/// linear-interpolation
+/// Calculate the definition of a line between two points
+/// @param $map - A SASS map of viewport widths and size value pairs
+/// @returns A linear equation as a calc() function
+/// @example
+///   font-size: linear-interpolation((320px: 18px, 768px: 26px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function linear-interpolation($map) {
+  $keys: map-keys($map);
+  @if (length($keys) != 2) {
+    @error "linear-interpolation() $map must be exactly 2 values";
+  }
+  // The slope
+  $m: (map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1)))/(nth($keys, 2) - nth($keys,1));
+  
+  // The y-intercept
+  $b: map-get($map, nth($keys, 1)) - $m * nth($keys, 1);
+  
+  // Determine if the sign should be positive or negative
+  $sign: "+";
+  @if ($b < 0) {
+    $sign: "-";
+    $b: abs($b);
+  }
+  
+  @return calc(#{$m*100}vw #{$sign} #{$b});
+}
+
+/// list-sort
+/// Sort a SASS list
+/// @param $list - A SASS list
+/// @returns A sorted SASS list
+/// @requires function list-remove
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function list-sort($list) {
+  $sortedlist: ();
+  @while length($list) > 0 {
+    $value: nth($list,1);
+    @each $item in $list {
+      @if $item < $value {
+        $value: $item;
+      }
+    }
+    $sortedlist: append($sortedlist, $value, 'space');
+    $list: list-remove($list, index($list, $value));
+  }
+  @return $sortedlist;
+}
+
+/// map-sort
+/// Sort map by keys
+/// @param $map - A SASS map
+/// @returns A SASS map sorted by keys
+/// @requires function list-sort
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function map-sort($map) {
+  $keys: list-sort(map-keys($map));
+  $sortedMap: ();
+  @each $key in $keys {
+    $sortedMap: map-merge($sortedMap, ($key: map-get($map, $key)));
+  }
+  @return $sortedMap;
+}
+
+/// list-remove
+/// Remove an item from a list
+/// @param $list - A SASS list
+/// @param $index - The list index to remove
+/// @returns A SASS list
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function list-remove($list, $index) {
+  $newList: ();
+  @for $i from 1 through length($list) {
+    @if $i != $index {
+      $newList: append($newList, nth($list,$i), 'space');
+    }
+  }
+  @return $newList;
 }

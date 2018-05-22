@@ -19,7 +19,9 @@
     "gulp-sourcemaps": "*",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "headroom.js": "^0.9.4",
     "normalize.css": "*",
+    "rfs": "^7.1.1",
     "swiper": "^4.2.0",
     "vinyl-ftp": "^0.6.1"
   }

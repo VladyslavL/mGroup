@@ -1,15 +1,15 @@
 @@include('./src/components/head.html')
 
 <body>
+  @@include('./src/components/page-header.html',{
+    "classes": "mg--text_color-black"
+  })
+  @@include('./src/components/works-header.html',{
+    "title": "Forum",
+    "subtitle": "Web development"
+  })
   <main>
     <article class="mg-work_article mg--text_align-center">
-      <div class="mg-works_header">
-        <div class="container">
-          <h1>Forum</h1>
-          <p>Web Development</p>
-        </div>
-      </div>
-
       <div class="container">
         <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
           <div class="content">
@@ -44,7 +44,7 @@
             <img src="images/works/Forum/slide-4@2x.jpg" alt="">
           </div>
         </div>
-        <a href="#" class="mg-work_article-btn layout vertical">
+        <a href="work-article-6.html" class="mg-work_article-btn layout vertical">
           <p class="mg--h1">next</p>
           <p class="mg--opacity_05">PinWall</p>
         </a>

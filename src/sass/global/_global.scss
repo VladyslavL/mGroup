@@ -1,5 +1,6 @@
 html{
   font-size: $font-size-global * 1px;
+  // font-size: calc(10px + (10 * .05 * ((100vw / 320) - 1px)));
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -10,6 +11,7 @@ body{
   color: rgba(0,0,0,0.5);
   letter-spacing: 0.5px;
   font-weight: $ff-regular;
+  font-size: 1.6rem;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -25,16 +27,21 @@ h1,h2,h3,h4,h5,h6{
 
 h1,
 .mg--h1{
-  @include fz-rem(80);
   font-weight: $ff-bold;
+  $map: (320px: 42px, 1200px: 80px);
+  @include poly-fluid-sizing('font-size', $map);
+
 }
 
 h2,
 .mg--h2{
-  @include fz-rem(48);
+  // @include fz-rem(48);
+  $map: (800px: 30px, 1024px: 36px, 1100px: 48px);
+  @include poly-fluid-sizing('font-size', $map);
 
     &.mg--secondary{
-      @include fz-rem(24);
+      $map: (320px: 24px, 800px: 30px, 1024px: 36px, 1100px: 34px, 1300px: 36px);
+      @include poly-fluid-sizing('font-size', $map);
     }
 }
 
@@ -47,6 +54,12 @@ h4,
 .mg--h4{
   @include fz-rem(18);
   font-weight: $ff-semibold;
+}
+
+h6,
+.mg--h6{
+  @include fz-rem(16);
+  font-weight: $ff-regular;
 }
 
 small{
@@ -92,27 +105,30 @@ ul{
 }
 input,
 textarea{
-  padding: 0 20px;
+  // padding: 0 20px;
   width: 100%;
   height: 65px;
   line-height: normal;
   border: none;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   outline: none;
   font-family: inherit;
   background-color: #000;
   color: #fff;
   box-sizing: border-box;
-  text-align: right;
+  text-align: inherit;
 }
 button{
   cursor: pointer;
 }
 
-@include placeholder(true){
+.disable-scroll{
+  overflow: hidden !important;
+}
+
+@include placeholder(false){
   color: #fff;
   text-transform: uppercase;
-  opacity: 1;
 }
 
 .mg-icon_arrow{
@@ -168,6 +184,14 @@ button{
       &white{
         color: #fff;
       }
+
+      &black{
+        color: #000;
+      }
+
+      &primary{
+        color: $color-primary;
+      }
     }
 
     &underlined{
@@ -178,12 +202,19 @@ button{
        content: '';
        position: absolute;
        width: 100%;
-       height: 1.25rem;
-       bottom: 0.25rem;
+       height: 0.5em;
+       bottom: 0.125em;
        left: 0;
        z-index: -1;
        background-color: $color-primary; 
       }
+    }
+
+    &unbreakable{
+      display: block;
+    }
+    &nowrap{
+      white-space: nowrap;
     }
   }
 
@@ -212,6 +243,14 @@ button{
 
   &flex{
     display: flex;
+  }
+
+  &padding-nav{
+    padding-top: 90px;
+  }
+
+  &pb{
+    padding-bottom: 1em;
   }
 
   &pb_100{
@@ -291,7 +330,10 @@ button{
 
   &screen_{
     &full{
-      min-height: 100vh;
+      min-height: 90vh;
+      @include media(lg){
+        min-height: 100vh;
+      }
     }
   }
 }
@@ -308,11 +350,16 @@ hr{
   max-width: 1170px;
   padding: 0 15px;
   margin: 0 auto;
+  @include media(md){
+  }
 
     &_lg{
-      max-width: 1330px;
+      width: 100%;
+      max-width: 1400px;
       padding: 0 15px;
       margin: 0 auto;
+      @include media(md){
+      }
     }
 }
 
@@ -323,7 +370,7 @@ hr{
   max-width: 165px;
   line-height: 50px;
   font-family: inherit;  
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   font-weight: $ff-semibold;
   letter-spacing: 2px;
   text-align: center;
@@ -340,7 +387,7 @@ hr{
     display: inline-block;
     width: 0;
     height: 0;
-    border-left: 5px solid #000;
+    border-left: 5px solid currentColor;
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
     border-radius: 1px;
@@ -362,6 +409,7 @@ hr{
   &:hover{
     color: initial;
     transform: translate(0, 0);
+    @include transition($duration: 0.3s);
     &:before{
       transform: translate(-5px, -0.05rem);
     }
@@ -369,9 +417,17 @@ hr{
       transform: translate(0,0);
     }
   }
+  &.mg--primary{
+    color: #fff;
+    background-color: $color-primary;
+    &:after{
+      border-color: $color-primary;
+    }
+  }
 }
 
 .mg-page_header{
+  position: relative;
   &__bg{
     position: absolute;
     top: 0;
@@ -415,10 +471,20 @@ hr{
   }
 
   &__bottombox{
-    padding: 100px 0;
+    $map-pt: (320px: 40px, 1400px: 100px);
+    $map-pb: (320px: 40px, 1400px: 100px);
+    @include poly-fluid-sizing('padding-top', $map-pt);  
+    @include poly-fluid-sizing('padding-bottom', $map-pb);  
+
+      p{
+        padding-top: 10px;
+        @include media(xs){
+          display: none;
+        }
+      }
 
       img{
-        margin-bottom: 10px;
+        animation: topDown 1s ease-in-out alternate infinite;
       }
   }
 
@@ -428,47 +494,49 @@ hr{
   }
 }
 
-.mg-logo{
-  position: absolute;
-  top: 35px;
-  left: 3vw;
-  z-index: 2;
-  line-height: 1;
-}
 
 .mg-nav{
+  width: 100%;
+  height: 75px;
+  z-index: 4;
   position: absolute;
-  top: 35px;
-  right: 3vw;
-  z-index: 2;
-  nav{
-    a{
-      display: block;
-      font-weight: $ff-semibold;
-      margin: 0 30px;
-      text-transform: capitalize;
-      text-decoration: none;
-      line-height: 1;
-      position: relative;
-      z-index: 1;
-      opacity: 0;
-      transform: translateY(-15px);
-      visibility: hidden;
-      @include transition;
-      &:hover,
-      &.active{
-        color: currentColor;
-        &:after{
-          content: '';
-          width: 100%;
-          height: 0.5em;
-          background-color: $color-primary;
-          position: absolute;
-          left: 0;
-          bottom: -0.065em;
-          z-index: -1;
-        }
-      }
+  top: 0;
+  // bottom: 100%;
+  left: 0;
+  padding: 0 3vw;
+  // animation-duration: .5s;
+  // animation-fill-mode: both;
+  // will-change: transform,opacity;
+  @include transition($name: background-color transform);
+  &.clone{
+    position: fixed;
+    top: auto;
+    bottom: 100%;
+  }
+
+  
+  &.headroom--top{
+    background-color: transparent;
+  }
+  
+  &.headroom--not-top{
+    color: #000;
+    background-color: #fff;
+    animation-duration: .5s;    
+    position: fixed;
+  }
+  
+  &.headroom--not-top.headroom--pinned{
+    transform: translateY(100%);
+  }
+  .mg-logo{
+    z-index: 4;
+    line-height: 1;
+    &:hover{
+      color: currentColor
+    }
+    svg g{
+      fill: currentColor;
     }
   }
   &_btn{
@@ -476,6 +544,7 @@ hr{
     height: 21px;
     position: relative;
     cursor: pointer;
+    z-index: 4;
     div{
       height: 3px;
       width: 100%;
@@ -489,7 +558,7 @@ hr{
       &:nth-child(2){
         top: 9px;
         width: 60%;
-        @include transition;        
+        transition: opacity 0.3s 0s ease, width 0.3s ease;        
       }
       &:nth-child(3){
         top: 18px;
@@ -503,26 +572,74 @@ hr{
       }
     }
   }
-  &.is-opened{
-    nav{
-      a{
-        visibility: visible;
-        transform: translateY(0);
-        opacity: 1;
-        &:nth-child(1){
-          transition-delay: 0.4s;
-        }
-        &:nth-child(2){
-          transition-delay: 0.3s;
-        }
-        &:nth-child(3){
-          transition-delay: 0.2s;
-        }
-        &:nth-child(4){
-          transition-delay: 0.1s;
-        }
+}
+
+.mg-nav_sidenav{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.95);
+  position: fixed;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  color: #fff;
+  @include transition($name: opacity visibility);
+
+  a:not(.mg-works_btn){
+    display: block;
+    font-weight: $ff-semibold;
+    margin: 1vh 0;
+    text-transform: capitalize;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-15px);
+    visibility: hidden;
+    @include transition;
+    $map: (320px: 25px, 1400px: 48px);
+    @include poly-fluid-sizing('font-size', $map);
+    @include media(xlg){
+      margin: 3vh 0;
+    }
+
+    &:after{
+      content: '';
+      width: 100%;
+      height: 0.5em;
+      background-color: $color-primary;
+      position: absolute;
+      left: 0;
+      bottom: 0.175em;
+      z-index: -1;
+      transform: scaleY(0);
+      transform-origin: center bottom;
+      @include transition($duration: 0.3s);        
+    }
+    &:hover{
+      color: currentColor;
+      &:after{
+        transform: scaleY(1);
       }
     }
+  }
+
+  .mg-works_btn{
+    position: absolute;
+    bottom: 0;
+    color: inherit;
+    padding: 0 0 1rem 0;
+    font-size: 2rem;
+    opacity: 0;
+  }
+}
+
+.sidenav-is-opened{
+  .mg-nav{
+    color: #fff;
+    background-color: transparent;
     .mg-nav_btn{
       div{
         width: 100%;
@@ -541,28 +658,107 @@ hr{
       }
     }
   }
+  .mg-nav_sidenav{
+    visibility: visible;
+    opacity: 1;
+    a{
+      visibility: visible;
+      transform: translateY(0);
+      opacity: 1;
+      &:nth-child(1){
+        transition-delay: 0.6s;
+      }
+      &:nth-child(2){
+        transition-delay: 0.5s;
+      }
+      &:nth-child(3){
+        transition-delay: 0.4s;
+      }
+      &:nth-child(4){
+        transition-delay: 0.3s;
+      }
+      &:nth-child(5){
+        transition-delay: 0.8s;
+      }
+    }
+  }
+  
 }
 
 .mg-about{
   background: $color-primary linear-gradient(90deg,
   $color-primary calc(100% - 1px), rgba(255,255,255,0.1) 1px
-  ) center / 250px repeat;
-  padding: 110px 0;
+  ) center / 17vw repeat;
+  padding: 85px 0;
+  overflow: hidden;
+  .container_lg.layout.horizontal{
+    $map-pl: (320px: 25px, 800px: 80px);
+    @include poly-fluid-sizing('padding-left', $map-pl);
+    display: block;
+    // padding: 0 25px;
+    @include media(xlg){
+      display: flex;
+    }
+  }
   &__header{
-    margin: 35px 70px;
+    margin: 15px 0 75px;
+//     max-width: 570px;
+    max-width: 17em;
+    text-align: left;
+    @include media(xlg){
+      margin: 15px 50px 35px 15px;
+      max-width: 520px;
+      padding-left: 0;
+    }
+  }
+
+  .mg--content_wrapper.layout.horizontal{
+    display: block;
+    @include media(710px){
+      display: flex;
+    }
   }
 
   &__content-box{
-    margin: 35px 50px;
-    width: 50%;
-    padding-left: 35px;
+    $map-pr: (709px: 0, 800px: 25px, 1024px: 75px);
+    margin: 25px 0;
+    min-width: 259px;
+    width: 100%;
     position: relative;
+    @include media(710px){
+      width: auto;
+    }
+    @include media(xlg){
+      // margin: 15px 100px 0 25px;
+    }
+    // @include poly-fluid-sizing('padding-right', $map-pr);
+    // @include poly-fluid-sizing('width', $map-width);
+    &:first-child{
+      $map-mr: (710px: 80px, 800px: 80px, 1024px: 150px, 1099px: 150px, 1100px: 50px, 1400px: 70px);
+      @include poly-fluid-sizing('margin-right', $map-mr);
+    }
     &_header{
-      padding-bottom: 20px;
-      span{
-        position: absolute;
-        top: 0;
-        left: 0;
+      display: inline-block;
+      .list-num{
+        display: block;
+        @include media(md){
+          position: absolute;
+          top: 0;
+          right: calc(100% + 5px);
+        }
+      }
+    }
+
+    & > p{
+      font-size: 14px;
+      max-width: 400px;
+      @include media(710px){
+        max-width: 250px;
+      }
+      $map: (800px: 300px, 1024px: 345px,1099px: 345px, 1100px: 259px);
+      @include poly-fluid-sizing('max-width', $map);
+      @include media(lg){
+        font-size: 16px;
       }
     }
   }
@@ -571,7 +767,7 @@ hr{
 .mg-techs{
   .swiper-container{
     background: #F3F3F3;
-    height: 150px;
+    height: 15rem;
   }
   .swiper-slide{
     // width: 150px;
@@ -591,21 +787,37 @@ hr{
 }
 
 .mg-works{
-  padding-top: 150px;
+  $map-mt: (600px: 15px, 1400px: 150px);
+  @include poly-fluid-sizing('margin-top', $map-mt);
+
   &_header{
-    padding-top: 320px;
+    padding-bottom: 20vh;
     .container{
-      max-width: 900px;
+      max-width: 90rem;
     }
   }
   &_grid{
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    & > div{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
     &-article{
-      height: 600px;
+      height: calc(45vw * 2);
+      width: 50%;
+      min-width: 290px;
+      max-height: 600px;
       position: relative;
       overflow: hidden;
+      flex: 1;
+      margin: 7px 0;
+      cursor: pointer;
+      @include media(md){
+        margin: 1.5rem;
+      }
+      @media screen and (orientation: landscape) and (max-height: 450px){
+        height: 300px;
+      }
       &:hover .grid-overlay{
         opacity: 1;
       }
@@ -614,29 +826,28 @@ hr{
         justify-content: center;
         align-items: center;
         position: absolute;
+        background-color: $color-primary;
+        opacity: 0;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: $color-primary;
-        opacity: 0;
-        @include transition;
+        @include transition();
       }
       &.mg--elem_lg{
-        grid-column-start: span 2;
-        .grid-overlay{
-          top: 30px;
-          right: 30px;
-          bottom: 30px;
-          left: 30px;
-        }
+        flex: 2;
       }
     }
   }
 
   &_btn{
     display: block;
-    padding: 100px 0;
+    // padding: 10rem 0 10rem 2.5rem;
+    padding-left: 2.5rem;
+    $map-pt: (320px: 50px, 1400px: 100px);
+    $map-pb: (320px: 50px, 1400px: 100px);
+    @include poly-fluid-sizing('padding-top', $map-pt);
+    @include poly-fluid-sizing('padding-bottom', $map-pb);
     font-weight: $ff-regular;
     text-align: center;
     text-decoration: none;
@@ -655,31 +866,200 @@ hr{
   }
 }
 
+.mg-job{
+  padding: 10rem 1rem;
+  $map-height: (320px: 500px, 1400px: 800px);
+  @include poly-fluid-sizing('min-height', $map-height);
+}
+
 .mg-work_article{
   .mg-works_header{
-    padding-bottom: 250px;
+//     padding-bottom: 250px;
   }
   &-image{
-    @include aspect-ratio(16,9);
+    // @include aspect-ratio(16,9);
     img{
       object-fit: cover;
+      display: block;
       width: 100%;
-      height: 100%;
+      // height: 100%;
     }
   }
   &-dscr{
     max-width: 950px;
-    padding: 150px 0;
     margin: 0 auto;
+    $map-pt: (320px: 50px, 1400px: 150px);
+    $map-pb: (320px: 50px, 1400px: 150px);
+    @include poly-fluid-sizing('padding-top', $map-pt);
+    @include poly-fluid-sizing('padding-bottom', $map-pb);
   }
   &-btn{
     color: inherit;
-    padding: 150px 0;
+    $map-pt: (320px: 50px, 1400px: 150px);
+    $map-pb: (320px: 50px, 1400px: 150px);
+    @include poly-fluid-sizing('padding-top', $map-pt);
+    @include poly-fluid-sizing('padding-bottom', $map-pb);
     text-decoration: none;
     font-weight: $ff-regular;
     p{
       line-height: 1;
       color: #000;
+    }
+  }
+}
+
+.mg-footer{
+  padding: 0 15px 0;
+  $map-pt: (320px: 50px, 1400px: 190px);
+  @include poly-fluid-sizing('padding-top', $map-pt);
+  background-color: #000;
+  .container_lg.layout.horizontal{
+    display: block;
+    @include media(lg){
+      display: flex;
+    }
+  }
+  &_title{
+    padding-bottom: 15px;
+    $map: (320px: 24px, 600px: 48px);
+    @include poly-fluid-sizing('font-size', $map);
+    span{
+      display: inline-block;
+      margin-left: 10px;
+      width: 8px;
+      height: 8px;
+      background-color: $color-primary;
+    }
+  }
+  .mg--mobile-only{
+    @include media(lg){
+      display: none;
+    }
+  }
+  &_subtitle{
+    margin-bottom: 115px;
+    $map-mb: (320px: 50px, 1400px: 115px);
+    @include poly-fluid-sizing('margin-bottom', $map-mb);  
+    @include media(lg){
+      text-align: left;
+    }
+    .blinking{
+      display: inline-block;
+      width: 10px;
+      height: 2px;
+      background-color: #fff;
+      animation: 1s blink step-end infinite;
+    }
+  }
+  &_smallbox{
+    order: -1;
+    $map-mr: (1023px: 0, 1024px: 125px, 1100px: 200px);
+    @include poly-fluid-sizing('margin-right', $map-mr);
+  }
+
+  &_emailbox{
+    display: none;
+    @include media(lg){
+      display: block;
+    }
+  }
+  &_form{
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    $map-mt: (320px: 50px, 1400px: 130px);
+    @include poly-fluid-sizing('margin-top', $map-mt);  
+    $map-mb: (1024px: 70px, 1100px: 250px);
+    @include poly-fluid-sizing('margin-bottom', $map-mb);
+    .layout.horizontal{
+      display: block;
+      @include media(md){
+        display: flex;
+      }
+    }
+    
+    button{
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      color: #fff;
+      text-transform: uppercase;
+      outline: none;
+      text-align: inherit;
+      font-size: 1.4rem;
+      height: 65px;
+    }
+    
+    input,
+    button{
+      color: currentColor;
+      border-bottom: 1px solid currentColor;
+      &:focus{
+        color: #fff;
+      }
+    }
+    
+    @include placeholder($focus-color: #fff){
+      color: rgba(255,255,255,0.5);
+    }
+
+    @include media(md){
+      text-align: right;
+      color: #fff;
+      input{
+        padding: 0 80px 0 0;
+        border-bottom: none;
+        &:focus{
+          padding: 0 20px 0 0;
+        }
+        & + input{
+          &:focus{
+            padding: 0 0 0 20px;
+          }
+        }
+        & + input,
+        & + button{
+          max-width: 250px;
+          width: 100%;
+          text-align: left;
+          padding: 0 0 0 80px;
+          border-left: 1px solid currentColor;
+        }
+      }
+      button{
+        border-bottom: none;
+        padding-left: 80px;        
+      }
+      .layout + .layout{
+        input,
+        button{
+          border-top: 1px solid currentColor;
+        }
+      }
+      @include placeholder($hide-on-focus: true){
+        color: #fff;
+      }
+    }
+  }
+  &_bot{
+    padding: 50px 0;
+  }
+  .copy{
+    font-size: 1.4rem;
+  }
+  .social{
+    a{
+      display: block;
+      height: 16px;
+      margin-left: 20px;
+      opacity: 0.8;
+      line-height: 1;
+      @include transition;
+      &:hover{
+        opacity: 1;
+      }
+    }
+    svg{
+      fill: #fff;
     }
   }
 }
@@ -693,4 +1073,23 @@ hr{
   50% {
     opacity: 1;
   }
+}
+
+@keyframes topDown {
+  from{
+    transform: translateY(10%)
+  }
+  to{
+    transform: translateY(-10%)
+  }
+}
+
+@keyframes slideUp{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-100%)}
+}
+
+@keyframes slideDown{
+  0%{transform:translateY(-100%)}
+  100%{transform:translateY(0)}
 }

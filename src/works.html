@@ -1,34 +1,48 @@
 @@include('./src/components/head.html')
 <body>
   <main>
-    <div class="mg-works_header mg--text_align-center">
-      <div class="container">
-        <h1>Simply breathtaking idea realisation</h1>
-        <p>Because we love what we do</p>
-      </div>
-    </div>
+    @@include('./src/components/page-header.html',{
+      "classes": "mg--text_color-black"
+    })
+
+    @@include('./src/components/works-header.html', {
+      "title": "Simply breathtaking idea realisation",
+      "subtitle": "Because we love what we do"
+    })
 
     <div class="mg-works">
       <div class="container">
         <div class="mg-works_grid">
-          <acticle class="mg-works_grid-article mg--bg_grey">
-            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
-          </acticle>
-          <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
-            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
-          </acticle>
-          <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
-            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
-          </acticle>
-          <acticle class="mg-works_grid-article mg--bg_grey">
-            <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
-          </acticle>
-          <acticle class="mg-works_grid-article mg--bg_grey">
-              <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
-            </acticle>
-            <acticle class="mg-works_grid-article mg--bg_grey mg--elem_lg">
-              <div class="grid-overlay"><a href="#" class="mg-button">View case</a></div>
-            </acticle>
+          <div>
+          <article class="mg-works_grid-article mg--bg_grey">
+            <img src="images/works/Copy/Copy-grid2x.jpg" class="mg--img_cover" alt="">
+            <div class="grid-overlay"><a href="work-article-1.html" class="mg-button">View case</a></div>
+          </article>
+          <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+            <img src="images/works/Archi/Archi-grid@2x.jpg" alt="" class="mg--img_cover">
+            <div class="grid-overlay"><a href="work-article-2.html" class="mg-button">View case</a></div>
+          </article>
+        </div>
+        <div>
+          <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+            <img src="images/works/FerBuy/FerBuy-grid2x.jpg" alt="" class="mg--img_cover">
+            <div class="grid-overlay"><a href="work-article-3.html" class="mg-button">View case</a></div>
+          </article>
+          <article class="mg-works_grid-article mg--bg_grey">
+            <img src="images/works/Chillisauce/Сhillisauce-grid@2x.jpg" alt="" class="mg--img_cover">            
+            <div class="grid-overlay"><a href="work-article-4.html" class="mg-button">View case</a></div>
+          </article>
+        </div>
+        <div>
+          <article class="mg-works_grid-article mg--bg_grey">
+              <img src="images/works/Forum/Forum-grid@2x.jpg" class="mg--img_cover" alt="">
+              <div class="grid-overlay"><a href="work-article-5.html" class="mg-button">View case</a></div>
+            </article>
+            <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
+              <img src="images/works/PinWall/PinWall-grid@2x.jpg" alt="" class="mg--img_cover">
+              <div class="grid-overlay"><a href="work-article-6.html" class="mg-button">View case</a></div>
+            </article>
+          </div>
         </div>
 
         <p class="mg-works_btn mg--opacity_05">Stay tuned...</p>
