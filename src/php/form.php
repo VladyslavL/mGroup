@@ -1,27 +1,27 @@
 <?php
 header("X-XSS-Protection: 0"); 
 
-$to = 'bjiagbko@gmail.com, yananaidiuk@gmail.com';
+$to = 'vladyslavliashenko@gmail.com, yananaidiuk@gmail.com';
 
 $name  = $_POST['name'];
-$phone = $_POST['phone'];
+// $phone = $_POST['phone'];
 $email   = $_POST['email'];
-$company = $_POST['company'];
-$message = $_POST['message'];
+// $company = $_POST['company'];
+$message = $_POST['msg'];
 
 
-if ( !empty( $_FILES['file']['tmp_name'] ) and $_FILES['file']['error'] == 0 ) {
-  $filepath = $_FILES['file']['tmp_name'];
-  $filename = $_FILES['file']['name'];
-} else {
-  $filepath = '';
-  $filename = '';
-}
+// if ( !empty( $_FILES['file']['tmp_name'] ) and $_FILES['file']['error'] == 0 ) {
+//   $filepath = $_FILES['file']['tmp_name'];
+//   $filename = $_FILES['file']['name'];
+// } else {
+//   $filepath = '';
+//   $filename = '';
+// }
 
 $body = "Name:\r\n ".$name."\r\n\r\n";
-$body .= "Phone number/Skype id:\r\n".$phone."\r\n\r\n";
+// $body .= "Phone number/Skype id:\r\n".$phone."\r\n\r\n";
 $body .= "Email:\r\n".$email."\r\n\r\n";
-$body .= "Company:\r\n".$company."\r\n\r\n";
+// $body .= "Company:\r\n".$company."\r\n\r\n";
 $body .= "Message:\r\n".$message;
 
 send_mail($to, $body, $email, $filepath, $filename);
@@ -64,7 +64,7 @@ function send_mail($to, $body, $email, $filepath, $filename)
   if (mail($to, $subject, $multipart, $headers))
   {
     // $_SESSION['success'] = true;
-    header('Location: http://mgroup.studio/contact.html');
+    header('Location: http://mgroup.studio');
   }
 }
 ?>

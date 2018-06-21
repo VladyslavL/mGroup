@@ -5,53 +5,19 @@
     "classes": "mg--text_color-black"
   })
   @@include('./src/components/works-header.html',{
-    "title": "Copy",
-    "subtitle": "Web development"
+    "title": "The Copywriting Studio",
+    "subtitle": "Company Website"
   })
-  <main>
-    <article class="mg-work_article mg--text_align-center">
-
-      <div class="container">
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Copy/slide-1@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <h2>FerBuy - Online payment system.</h2>
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Copy/slide-2@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Copy/slide-3@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Copy/slide-4@2x.jpg" alt="">
-          </div>
-        </div>
-        <a href="work-article-2.html" class="mg-work_article-btn layout vertical">
-          <p class="mg--h1">next</p>
-          <p class="mg--opacity_05">Archi</p>
-        </a>
-      </div>
-    </article>
-  </main>
+  @@include('./src/components/work-article.component.html',{
+    "mainImg": "images/works-grid/Copy-grid@3x.jpg",
+    "websiteLink": "http://chaikovski.biz/",
+    "clientImg": "https://odesk-prod-portraits.s3.amazonaws.com/Users:iurii-zharkov:PortraitUrl_100?AWSAccessKeyId=AKIAIKIUKM3HBSWUGCNQ&Expires=2147483647&Signature=Dja1yvss7Ygaoo9iUr4lDxU2rkw%3D",
+    "clientName": "Iurii Zharkov",
+    "clientCompany": "@Студия копирайтинга",
+    "clientReview": "Very professional, very quick — Vladyslav was able to deliver what I needed on a very tight time-frame. He went beyond and above original scope trying hard and being proactive. Don't even think: hire.",
+    "nextPageUrl": "work-article-2.html",
+    "nextPageName": "Architecture studio"
+  })
 
   @@include('./src/components/page-footer.html')
 </body>

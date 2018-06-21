@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="mg-techs">
+    <!-- <div class="mg-techs">
       <div class="swiper-container">
           <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="images/tech-icons/1.png" alt=""></div>
@@ -60,49 +60,16 @@
             <div class="swiper-slide"><img src="images/tech-icons/5.png" alt=""></div>
           </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="mg-works">
-      <div class="container">
-        <div class="mg-works_grid">
-          <div>
-          <article class="mg-works_grid-article mg--bg_grey">
-            <img src="images/works/Copy/Copy-grid2x.jpg" class="mg--img_cover" alt="">
-            <div class="grid-overlay"><a href="work-article-1.html" class="mg-button">View case</a></div>
-          </article>
-          <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
-            <img src="images/works/Archi/Archi-grid@2x.jpg" alt="" class="mg--img_cover">
-            <div class="grid-overlay"><a href="work-article-2.html" class="mg-button">View case</a></div>
-          </article>
-        </div>
-        <div>
-          <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
-            <img src="images/works/FerBuy/FerBuy-grid2x.jpg" alt="" class="mg--img_cover">
-            <div class="grid-overlay"><a href="work-article-3.html" class="mg-button">View case</a></div>
-          </article>
-          <article class="mg-works_grid-article mg--bg_grey">
-            <img src="images/works/Chillisauce/Сhillisauce-grid@2x.jpg" alt="" class="mg--img_cover">            
-            <div class="grid-overlay"><a href="work-article-4.html" class="mg-button">View case</a></div>
-          </article>
-        </div>
-          <!-- <article class="mg-works_grid-article mg--bg_grey">
-              <img src="images/works/Forum/Forum-grid@2x.jpg" class="mg--img_cover" alt="">
-              <div class="grid-overlay"><a href="work-article-5.html" class="mg-button">View case</a></div>
-            </article>
-            <article class="mg-works_grid-article mg--bg_grey mg--elem_lg">
-              <img src="images/works/PinWall/PinWall-grid@2x.jpg" alt="" class="mg--img_cover">
-              <div class="grid-overlay"><a href="work-article-6.html" class="mg-button">View case</a></div>
-            </article> -->
-        </div>
+    @@include('src/components/works-grid.component.html',{
+      "wholeGrid": false 
+    })
 
-        <a href="works.html" class="mg-works_btn">see more works <span>&rarr;</span></a>
-      </div>
-    </div>
-
-    <div class="mg-job mg--text_align-center layout vertical center-center mg--bg_cover" style="background-image: url(./images/mask.png)">
+    <div id="career" class="mg-job mg--text_align-center layout vertical center-center mg--bg_cover" style="background-image: url(./images/mask.png)">
       <h3 class="mg--h6 mg--pb">Send us your CV and we will contact you shortly!</h3>
       <h4 class="mg--h2 mg--pb"><span class="mg--text_unbreakable">￼￼Do you want to become a part of our team?</span><span class="mg--text_unbreakable">We are searching talents!</span></h4>
-      <a href="mail:mondaygroup.studio@gmail.com" class="mg-button mg--primary">Write us</a>
+      <a href="mailto:info@mgroup.studio" class="mg-button mg--primary">Write us</a>
     </div>
   </main>
   

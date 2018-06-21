@@ -5,52 +5,21 @@
     "classes": "mg--text_color-black"
   })
   @@include('./src/components/works-header.html',{
-    "title": "Chillisauce",
-    "subtitle": "Web development"
+    "title": "Serge Vasil",
+    "subtitle": "Portfolio website"
   })
-  <main>
-    <article class="mg-work_article mg--text_align-center">
-      <div class="container">
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Chillisauce/slide-1@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <h2>FerBuy - Online payment system.</h2>
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Chillisauce/slide-2@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Chillisauce/slide-3@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Chillisauce/slide-4@2x.jpg" alt="">
-          </div>
-        </div>
-        <a href="work-article-5.html" class="mg-work_article-btn layout vertical">
-          <p class="mg--h1">next</p>
-          <p class="mg--opacity_05">Forum</p>
-        </a>
-      </div>
-    </article>
-  </main>
+  @@include('./src/components/work-article.component.html',{
+    "mainImg": "images/works-grid/Sergevasil-grid@3x.jpg",
+    "workDescriptionHeader": "Serge Vasil - Product Designer",
+    "workDescriptionText": "Portfolio website for a San Francisco based product designer specializing in art direction, branding, and interactive experiences.",
+    "websiteLink": "http://sergevasil.com/",
+    "clientImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsY3CtfiAaAblXNeHgWpRjL6uHzA73lNEX_1uCDwhlEivkPaFhhg",
+    "clientName": "Serge Vasil",
+    "clientCompany": "Product Designer",
+    "clientReview": "Thank you!👨‍💻👍",
+    "nextPageUrl": "work-article-5.html",
+    "nextPageName": "Chillisauce"
+  })
 
   @@include('./src/components/page-footer.html')
 </body>

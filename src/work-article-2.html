@@ -5,61 +5,21 @@
     "classes": "mg--text_color-black"
   })
   @@include('./src/components/works-header.html',{
-    "title": "Archi",
-    "subtitle": "Web development"
+    "title": "Architecture Studio",
+    "subtitle": "Portfolio Website"
   })
-  <main>
-    <article class="mg-work_article mg--text_align-center">
-      <div class="container">
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Archi/slide-1@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <h2>FerBuy - Online payment system.</h2>
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Archi/slide-2@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Archi/slide-3@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Archi/slide-4@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-            <div class="content">
-              <img src="images/works/Archi/slide-5@2x.jpg" alt="">
-            </div>
-          </div>
-        <a href="work-article-3.html" class="mg-work_article-btn layout vertical">
-          <p class="mg--h1">next</p>
-          <p class="mg--opacity_05">FerBuy</p>
-        </a>
-      </div>
-    </article>
-  </main>
+  @@include('./src/components/work-article.component.html',{
+    "mainImg": "images/works-grid/Archi-grid@3x.jpg",
+    "workDescriptionHeader": "Archi - Architecture Studio",
+    "workDescriptionText": "Since 2000, Archi Architecture Studio has worked to deliver well-conceived, constructible architecture with lasting value. They provide comprehensive architectural services including building and interior design, master planning, feasibility studies and related services.",
+    "websiteLink": false,
+    "clientImg": "",
+    "clientName": "Jim Lindsey",
+    "clientCompany": "@Archi",
+    "clientReview": "Professional designer, quick turnaround ,pleasure to work with. Will hire again for any design job I will have in future. Thanks!",
+    "nextPageUrl": "work-article-3.html",
+    "nextPageName": "FerBuy"
+  })
 
   @@include('./src/components/page-footer.html')
 </body>

@@ -1,0 +1,49 @@
+<main>
+  <article class="mg-work_article layout vertical center-center">
+    <div class="container mg-work_article-image self-stretch">
+      <img src="@@mainImg" alt="">
+    </div>
+
+    @@if(context.workDescriptionHeader || context.workDescriptionText){ 
+      <div class="mg-work_description mg--text_align-center">
+        <div class="container">
+          <h2>@@workDescriptionHeader</h2>
+          <p class="mg--opacity_05">@@workDescriptionText</p>
+        </div>
+      </div>
+    }
+
+    @@if(!context.websiteLink){
+      <p class="mg-work_link">Coming soon...</p>
+    }
+
+    @@if(context.websiteLink){
+      <a href="@@websiteLink" target="_blank" class="mg-work_link">visit current vebsite →</a>
+    }
+
+
+    <div class="mg-work_review">
+      <p class="mg-review_label">CLIENTS REVIEW</p>
+      <div class="mg-review layout horizontal">
+        <div class="mg-review_image flex-none">
+          @@if(!context.clientImg){
+            <img src="images/user.png" alt="">
+          }
+          @@if(context.clientImg){
+            <img src="@@clientImg" alt="">
+          }
+        </div>
+        <blockquote class="mg-review_content">
+          <cite><b class="mg--text_nowrap inline-block">@@clientName</b><span class="mg--text_nowrap inline-block">@@clientCompany</span></cite>
+          <div class="mg-review_rating">★★★★★</div>
+          <q>@@clientReview</q>
+        </blockquote>
+      </div>
+
+    </div>
+  </article>
+  <a href="@@nextPageUrl" class="mg-work_article-btn mg--text_align-center layout vertical">
+    <p class="mg--h1">next</p>
+    <p class="mg--opacity_05">@@nextPageName</p>
+  </a>
+</main>

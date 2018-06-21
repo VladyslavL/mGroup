@@ -5,52 +5,21 @@
     "classes": "mg--text_color-black"
   })
   @@include('./src/components/works-header.html',{
-    "title": "Forum",
-    "subtitle": "Web development"
+    "title": "Chillisauce",
+    "subtitle": "Event agency"
   })
-  <main>
-    <article class="mg-work_article mg--text_align-center">
-      <div class="container">
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Forum/slide-1@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <h2>FerBuy - Online payment system.</h2>
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Forum/slide-2@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Forum/slide-3@2x.jpg" alt="">
-          </div>
-        </div>
-        <div class="mg-work_article-dscr">
-          <p>The mission of the company is to introduce and promote innovative methods and solutions that ensure the maximum
-            speed and security of online transactions.</p>
-        </div>
-        <div class="mg-work_article-image mg--bg_cover mg--bg_grey">
-          <div class="content">
-            <img src="images/works/Forum/slide-4@2x.jpg" alt="">
-          </div>
-        </div>
-        <a href="work-article-6.html" class="mg-work_article-btn layout vertical">
-          <p class="mg--h1">next</p>
-          <p class="mg--opacity_05">PinWall</p>
-        </a>
-      </div>
-    </article>
-  </main>
+  @@include('./src/components/work-article.component.html',{
+    "mainImg": "images/works-grid/Chillisauce-grid@3x.jpg",
+    "workDescriptionHeader": "Chillisauce - the UK’s largest event agencies.",
+    "workDescriptionText": "Chillisauce is one of the UK’s largest and fastest growing event agencies, delivering thousands of memorable activities and experiences for groups and companies across Europe every year.",
+    "websiteLink": "http://chillisauce.com/",
+    "clientImg": "https://scontent.fiev13-1.fna.fbcdn.net/v/t1.0-1/28279926_1596852687028498_5055991322858621378_n.png?_nc_cat=0&oh=f3b3f249120a1e1b70295fc62cb41e00&oe=5BBE3884",
+    "clientName": "James Baddiley",
+    "clientCompany": "@Chillisauce",
+    "clientReview": "Great Freelancers to work with and excellent front end coding skills.",
+    "nextPageUrl": "work-article-6.html",
+    "nextPageName": "1Stuk"
+  })
 
   @@include('./src/components/page-footer.html')
 </body>
